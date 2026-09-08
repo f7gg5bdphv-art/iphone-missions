@@ -498,6 +498,7 @@ h1{
 }
 
 @media(max-width:390px){
+
   .hero-grid{
     grid-template-columns:1fr 110px;
   }
@@ -514,6 +515,7 @@ h1{
   .hero-date{
     font-size:23px;
   }
+
 }
 </style>
 </head>
@@ -541,12 +543,21 @@ h1{
 
     <div class="field">
       <label>Логін</label>
-      <input id="login" autocomplete="username" placeholder="Введи логін">
+      <input
+        id="login"
+        autocomplete="username"
+        placeholder="Введи логін"
+      >
     </div>
 
     <div class="field">
       <label>Пароль</label>
-      <input id="password" type="password" autocomplete="current-password" placeholder="Введи пароль">
+      <input
+        id="password"
+        type="password"
+        autocomplete="current-password"
+        placeholder="Введи пароль"
+      >
     </div>
 
     <button class="login-btn" onclick="loginUser()">
@@ -604,48 +615,124 @@ h1{
 
       <div class="phone">
 
-        <svg viewBox="0 0 150 260" xmlns="http://www.w3.org/2000/svg">
+        <svg
+          viewBox="0 0 150 260"
+          xmlns="http://www.w3.org/2000/svg"
+        >
 
           <defs>
 
-            <linearGradient id="frame" x1="0" y1="0" x2="1" y2="1">
+            <linearGradient
+              id="frame"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
               <stop stop-color="#e5e8ed"/>
-              <stop offset=".45" stop-color="#8c95a2"/>
-              <stop offset="1" stop-color="#f2f4f7"/>
+              <stop
+                offset=".45"
+                stop-color="#8c95a2"
+              />
+              <stop
+                offset="1"
+                stop-color="#f2f4f7"
+              />
             </linearGradient>
 
-            <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
-              <stop stop-color="#253247"/>
-              <stop offset=".55" stop-color="#0d121b"/>
-              <stop offset="1" stop-color="#1c4c72"/>
+            <linearGradient
+              id="screen"
+              x1="0"
+              y1="0"
+              x2="1"
+              y2="1"
+            >
+              <stop
+                stop-color="#253247"
+              />
+              <stop
+                offset=".55"
+                stop-color="#0d121b"
+              />
+              <stop
+                offset="1"
+                stop-color="#1c4c72"
+              />
             </linearGradient>
 
           </defs>
 
-          <rect x="17" y="3" width="116" height="254" rx="28" fill="url(#frame)"/>
+          <rect
+            x="17"
+            y="3"
+            width="116"
+            height="254"
+            rx="28"
+            fill="url(#frame)"
+          />
 
-          <rect x="21" y="7" width="108" height="246" rx="25" fill="#090b0f"/>
+          <rect
+            x="21"
+            y="7"
+            width="108"
+            height="246"
+            rx="25"
+            fill="#090b0f"
+          />
 
-          <rect x="25" y="11" width="100" height="238" rx="22" fill="url(#screen)"/>
+          <rect
+            x="25"
+            y="11"
+            width="100"
+            height="238"
+            rx="22"
+            fill="url(#screen)"
+          />
 
-          <circle cx="75" cy="20" r="5.5" fill="#030407"/>
+          <circle
+            cx="75"
+            cy="20"
+            r="5.5"
+            fill="#030407"
+          />
 
-          <rect x="61" y="16" width="28" height="8" rx="4" fill="#030407"/>
+          <rect
+            x="61"
+            y="16"
+            width="28"
+            height="8"
+            rx="4"
+            fill="#030407"
+          />
 
-          <circle cx="75" cy="132" r="39" fill="none" stroke="#ffffff" stroke-opacity=".08" stroke-width="2"/>
+          <circle
+            cx="75"
+            cy="132"
+            r="39"
+            fill="none"
+            stroke="#ffffff"
+            stroke-opacity=".08"
+            stroke-width="2"
+          />
 
-          <text x="75" y="127"
-                text-anchor="middle"
-                fill="white"
-                font-size="15"
-                font-weight="700">
+          <text
+            x="75"
+            y="127"
+            text-anchor="middle"
+            fill="white"
+            font-size="15"
+            font-weight="700"
+          >
             iPhone
           </text>
 
-          <text x="75" y="146"
-                text-anchor="middle"
-                fill="#9ecfff"
-                font-size="9">
+          <text
+            x="75"
+            y="146"
+            text-anchor="middle"
+            fill="#9ecfff"
+            font-size="9"
+          >
             MISSION
           </text>
 
@@ -657,36 +744,73 @@ h1{
 
 
     <div class="progress-title">
+
       <span>Прогрес</span>
-      <b id="progressText">0%</b>
+
+      <b id="progressText">
+        0%
+      </b>
+
     </div>
 
     <div class="track">
-      <div class="fill" id="progressFill"></div>
+
+      <div
+        class="fill"
+        id="progressFill"
+      ></div>
+
     </div>
 
     <div class="scale">
+
       <span>31.12</span>
+
       <span>ЦІЛЬ</span>
+
       <span>Сьогодні</span>
+
     </div>
 
 
     <div class="stats">
 
       <div class="stat">
-        <b id="earnedStat">0</b>
-        <small>ЗАРОБЛЕНО</small>
+
+        <b id="earnedStat">
+          0
+        </b>
+
+        <small>
+          ЗАРОБЛЕНО
+        </small>
+
       </div>
 
-      <div class="stat">
-        <b id="penaltyStat">0</b>
-        <small>ШТРАФИ</small>
-      </div>
 
       <div class="stat">
-        <b id="netStat">0</b>
-        <small>РЕЗУЛЬТАТ</small>
+
+        <b id="penaltyStat">
+          0
+        </b>
+
+        <small>
+          ШТРАФИ
+        </small>
+
+      </div>
+
+
+      <div class="stat">
+
+        <b id="netStat">
+          0
+        </b>
+
+        <small>
+          РЕЗУЛЬТАТ
+        </small>
+
       </div>
 
     </div>
@@ -702,18 +826,33 @@ h1{
       Мої завдання
     </div>
 
+
     <div class="mission">
 
       <div class="mission-main">
-        <div class="icon">🧹</div>
+
+        <div class="icon">
+          🧹
+        </div>
 
         <div>
-          <h3>Пропилососити квартиру</h3>
-          <p>Нагорода: +1 день</p>
+
+          <h3>
+            Пропилососити квартиру
+          </h3>
+
+          <p>
+            Нагорода: +1 день
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" onclick="addBonus(1)">
+      <button
+        class="plus"
+        onclick="addBonus(1)"
+      >
         +1
       </button>
 
@@ -723,15 +862,29 @@ h1{
     <div class="mission">
 
       <div class="mission-main">
-        <div class="icon">✨</div>
+
+        <div class="icon">
+          ✨
+        </div>
 
         <div>
-          <h3>Витерти пил по всій квартирі</h3>
-          <p>Нагорода: +0.5 дня</p>
+
+          <h3>
+            Витерти пил по всій квартирі
+          </h3>
+
+          <p>
+            Нагорода: +0.5 дня
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" onclick="addBonus(0.5)">
+      <button
+        class="plus"
+        onclick="addBonus(0.5)"
+      >
         +0.5
       </button>
 
@@ -741,33 +894,65 @@ h1{
     <div class="mission">
 
       <div class="mission-main">
-        <div class="icon">🍳</div>
+
+        <div class="icon">
+          🍳
+        </div>
 
         <div>
-          <h3>Приготувати їжу для всіх</h3>
-          <p>Нагорода: +1 день</p>
+
+          <h3>
+            Приготувати їжу для всіх
+          </h3>
+
+          <p>
+            Нагорода: +1 день
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" onclick="addBonus(1)">
+      <button
+        class="plus"
+        onclick="addBonus(1)"
+      >
         +1
       </button>
 
     </div>
 
 
-    <div class="mission" id="weeklyMission">
+    <div
+      class="mission"
+      id="weeklyMission"
+    >
 
       <div class="mission-main">
-        <div class="icon">📦</div>
+
+        <div class="icon">
+          📦
+        </div>
 
         <div>
-          <h3>Щотижневе замовлення на роботі</h3>
-          <p>+1 день • видає адміністратор</p>
+
+          <h3>
+            Щотижневе замовлення на роботі
+          </h3>
+
+          <p>
+            +1 день • видає адміністратор
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" disabled>
+      <button
+        class="plus"
+        id="userWeeklyBtn"
+        disabled
+      >
         +1
       </button>
 
@@ -787,13 +972,24 @@ h1{
     <div class="result">
 
       <div>
-        <div class="big-number" id="netResult">0</div>
+
+        <div
+          class="big-number"
+          id="netResult"
+        >
+          0
+        </div>
+
         <div class="result-label">
           чистих бонусних днів
         </div>
+
       </div>
 
-      <div class="result-pill" id="resultLabel">
+      <div
+        class="result-pill"
+        id="resultLabel"
+      >
         Початок місії
       </div>
 
@@ -804,11 +1000,17 @@ h1{
 
   <!-- ADMIN -->
 
-  <section id="adminPanel" class="card admin-panel hidden">
+  <section
+    id="adminPanel"
+    class="card admin-panel hidden"
+  >
 
     <div class="admin-head">
 
-      <div class="section-title" style="margin:0">
+      <div
+        class="section-title"
+        style="margin:0"
+      >
         Панель адміністратора
       </div>
 
@@ -819,58 +1021,107 @@ h1{
     </div>
 
     <div class="admin-note">
-      Тут доступні бонуси, штрафи та керування місією.
+      Адміністратор має повний доступ до місії.
     </div>
 
+
+    <!-- WEEKLY -->
 
     <div class="mission">
 
       <div class="mission-main">
-        <div class="icon">📅</div>
+
+        <div class="icon">
+          📅
+        </div>
 
         <div>
-          <h3>Щотижневе замовлення</h3>
-          <p id="weeklyStatus">+1 день</p>
+
+          <h3>
+            Щотижневе замовлення
+          </h3>
+
+          <p id="weeklyStatus">
+            +1 день
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" id="weeklyBtn" onclick="giveWeekly()">
+      <button
+        class="plus"
+        id="weeklyBtn"
+        onclick="giveWeekly()"
+      >
         +1
       </button>
 
     </div>
 
 
+    <!-- PENALTY +1 -->
+
     <div class="mission penalty">
 
       <div class="mission-main">
-        <div class="icon">⚠️</div>
+
+        <div class="icon">
+          ⚠️
+        </div>
 
         <div>
-          <h3>Штраф</h3>
-          <p>+1 день до покупки</p>
+
+          <h3>
+            Штраф
+          </h3>
+
+          <p>
+            +1 день до покупки
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" onclick="addPenalty(1)">
+      <button
+        class="plus"
+        onclick="addPenalty(1)"
+      >
         +1
       </button>
 
     </div>
 
 
+    <!-- PENALTY +0.5 -->
+
     <div class="mission penalty">
 
       <div class="mission-main">
-        <div class="icon">⚠️</div>
+
+        <div class="icon">
+          ⚠️
+        </div>
 
         <div>
-          <h3>Половина штрафу</h3>
-          <p>+0.5 дня до покупки</p>
+
+          <h3>
+            Половина штрафу
+          </h3>
+
+          <p>
+            +0.5 дня до покупки
+          </p>
+
         </div>
+
       </div>
 
-      <button class="plus" onclick="addPenalty(0.5)">
+      <button
+        class="plus"
+        onclick="addPenalty(0.5)"
+      >
         +0.5
       </button>
 
@@ -879,11 +1130,17 @@ h1{
 
     <div class="actions">
 
-      <button class="secondary" onclick="undoLast()">
+      <button
+        class="secondary"
+        onclick="undoLast()"
+      >
         ↩ Скасувати останню
       </button>
 
-      <button class="secondary" onclick="resetAll()">
+      <button
+        class="secondary"
+        onclick="resetAll()"
+      >
         ♻️ Скинути все
       </button>
 
@@ -892,18 +1149,31 @@ h1{
   </section>
 
 
+  <!-- LOGOUT -->
+
   <section class="card">
 
-    <button class="secondary logout" style="width:100%" onclick="logout()">
+    <button
+      class="secondary logout"
+      style="width:100%"
+      onclick="logout()"
+    >
       Вийти з акаунта
     </button>
 
     <div class="note">
+
       Дані синхронізуються через Firebase.<br>
-      Зміни на одному телефоні з'являються на іншому автоматично.
+
+      Зміни на одному телефоні
+      з'являються на іншому автоматично.
+
     </div>
 
-    <div class="status" id="firebaseStatus">
+    <div
+      class="status"
+      id="firebaseStatus"
+    >
       Підключення до бази...
     </div>
 
@@ -923,7 +1193,6 @@ import {
   getDatabase,
   ref,
   onValue,
-  runTransaction,
   set
 }
 from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
@@ -933,37 +1202,51 @@ from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
 
 const firebaseConfig = {
 
-  apiKey:"AIzaSyAzLTYys_Nhg0Sm1XWbAU3CCfRAsAfzlbI",
+  apiKey:
+    "AIzaSyAzLTYys_Nhg0Sm1XWbAU3CCfRAsAfzlbI",
 
-  authDomain:"iphone-mission.firebaseapp.com",
+  authDomain:
+    "iphone-mission.firebaseapp.com",
 
-  databaseURL:"https://iphone-mission-default-rtdb.europe-west1.firebasedatabase.app",
+  databaseURL:
+    "https://iphone-mission-default-rtdb.europe-west1.firebasedatabase.app",
 
-  projectId:"iphone-mission",
+  projectId:
+    "iphone-mission",
 
-  storageBucket:"iphone-mission.firebasestorage.app",
+  storageBucket:
+    "iphone-mission.firebasestorage.app",
 
-  messagingSenderId:"670018031139",
+  messagingSenderId:
+    "670018031139",
 
-  appId:"1:670018031139:web:5d9d5e0ec4b1f746baeb96",
+  appId:
+    "1:670018031139:web:5d9d5e0ec4b1f746baeb96",
 
-  measurementId:"G-5FJ97J55CL"
+  measurementId:
+    "G-5FJ97J55CL"
 
 };
 
 
-const app = initializeApp(firebaseConfig);
+const app =
+  initializeApp(firebaseConfig);
 
-const db = getDatabase(app);
+const db =
+  getDatabase(app);
 
-const dataRef = ref(db,"mission");
+const dataRef =
+  ref(db,"mission");
 
 
 /* CONSTANTS */
 
-const BASE_DATE = new Date("2026-12-31T00:00:00");
+const BASE_DATE =
+  new Date("2026-12-31T00:00:00");
+
 
 const USERS = {
+
   iphone:{
     password:"1234",
     role:"user"
@@ -973,6 +1256,7 @@ const USERS = {
     password:"admin123",
     role:"admin"
   }
+
 };
 
 
@@ -981,10 +1265,15 @@ const USERS = {
 let currentRole = null;
 
 let state = {
+
   earned:0,
+
   penalty:0,
+
   weeklyWeek:"",
+
   history:[]
+
 };
 
 
@@ -993,30 +1282,43 @@ let state = {
 window.loginUser = function(){
 
   const login =
-    document.getElementById("login").value.trim();
+    document
+      .getElementById("login")
+      .value
+      .trim();
 
   const password =
-    document.getElementById("password").value;
+    document
+      .getElementById("password")
+      .value;
 
   const error =
-    document.getElementById("error");
+    document
+      .getElementById("error");
+
 
   if(
     USERS[login] &&
     USERS[login].password === password
   ){
 
-    currentRole = USERS[login].role;
+    currentRole =
+      USERS[login].role;
 
-    sessionStorage.setItem("role",currentRole);
+    sessionStorage.setItem(
+      "role",
+      currentRole
+    );
 
     document
       .getElementById("loginPage")
-      .classList.add("hidden");
+      .classList
+      .add("hidden");
 
     document
       .getElementById("mainPage")
-      .classList.remove("hidden");
+      .classList
+      .remove("hidden");
 
     setupRole();
 
@@ -1037,17 +1339,24 @@ window.loginUser = function(){
 const savedRole =
   sessionStorage.getItem("role");
 
-if(savedRole === "user" || savedRole === "admin"){
 
-  currentRole = savedRole;
+if(
+  savedRole === "user" ||
+  savedRole === "admin"
+){
+
+  currentRole =
+    savedRole;
 
   document
     .getElementById("loginPage")
-    .classList.add("hidden");
+    .classList
+    .add("hidden");
 
   document
     .getElementById("mainPage")
-    .classList.remove("hidden");
+    .classList
+    .remove("hidden");
 
   setupRole();
 
@@ -1059,98 +1368,144 @@ if(savedRole === "user" || savedRole === "admin"){
 function setupRole(){
 
   const badge =
-    document.getElementById("roleBadge");
+    document
+      .getElementById("roleBadge");
 
   const admin =
-    document.getElementById("adminPanel");
+    document
+      .getElementById("adminPanel");
+
 
   if(currentRole === "admin"){
 
-    badge.textContent = "● Адміністратор";
+    badge.textContent =
+      "● Адміністратор";
 
-    admin.classList.remove("hidden");
+    admin.classList
+      .remove("hidden");
 
   }else{
 
-    badge.textContent = "● Користувач";
+    badge.textContent =
+      "● Користувач";
 
-    admin.classList.add("hidden");
+    admin.classList
+      .add("hidden");
 
   }
 
 }
 
 
-/* FIREBASE REALTIME LISTENER */
+/* FIREBASE REALTIME */
 
-onValue(dataRef,(snapshot)=>{
+onValue(
+  dataRef,
+  (snapshot)=>{
 
-  const data = snapshot.val();
+    const data =
+      snapshot.val();
 
-  if(data){
 
-    state = {
+    if(data){
 
-      earned:Number(data.earned || 0),
+      state = {
 
-      penalty:Number(data.penalty || 0),
+        earned:
+          Number(data.earned || 0),
 
-      weeklyWeek:data.weeklyWeek || "",
+        penalty:
+          Number(data.penalty || 0),
 
-      history:Array.isArray(data.history)
-        ? data.history
-        : []
+        weeklyWeek:
+          data.weeklyWeek || "",
 
-    };
+        history:
+          Array.isArray(data.history)
+            ? data.history
+            : []
 
-  }else{
+      };
 
-    state = {
-      earned:0,
-      penalty:0,
-      weeklyWeek:"",
-      history:[]
-    };
+    }else{
 
-    set(dataRef,state);
+      state = {
+
+        earned:0,
+
+        penalty:0,
+
+        weeklyWeek:"",
+
+        history:[]
+
+      };
+
+      set(
+        dataRef,
+        state
+      );
+
+    }
+
+
+    document
+      .getElementById("firebaseStatus")
+      .textContent =
+        "● Синхронізовано";
+
+
+    render();
 
   }
-
-  document.getElementById("firebaseStatus")
-    .textContent = "● Синхронізовано";
-
-  render();
-
-});
+);
 
 
 /* SAVE */
 
 async function save(){
 
-  await set(dataRef,state);
+  await set(
+    dataRef,
+    state
+  );
 
 }
 
 
 /* HISTORY */
 
-function addHistory(type,value,label){
+function addHistory(
+  type,
+  value,
+  label
+){
 
-  if(!Array.isArray(state.history)){
-    state.history=[];
+  if(
+    !Array.isArray(state.history)
+  ){
+
+    state.history = [];
+
   }
+
 
   state.history.push({
 
-    type,
-    value,
-    label,
+    type:type,
+
+    value:value,
+
+    label:label,
+
     time:Date.now()
 
   });
 
-  if(state.history.length > 50){
+
+  if(
+    state.history.length > 50
+  ){
 
     state.history =
       state.history.slice(-50);
@@ -1160,198 +1515,347 @@ function addHistory(type,value,label){
 }
 
 
-/* BONUS */
+/* BONUS
 
-window.addBonus = async function(value){
+   ПОВНИЙ ДОСТУП:
+   USER + ADMIN
+*/
 
-  if(currentRole !== "user"){
-    return;
-  }
+window.addBonus =
+  async function(value){
 
-  state.earned =
-    Number((state.earned + value).toFixed(1));
+    /*
+      Раніше тут було:
+      if(currentRole !== "user")
 
-  addHistory(
-    "bonus",
-    value,
-    "Бонус користувача"
-  );
+      Тепер адмін також
+      має право додавати бонуси.
+    */
 
-  await save();
+    if(
+      currentRole !== "user" &&
+      currentRole !== "admin"
+    ){
 
-};
+      return;
+
+    }
 
 
-/* PENALTY */
+    state.earned =
+      Number(
+        (
+          state.earned + value
+        ).toFixed(1)
+      );
 
-window.addPenalty = async function(value){
 
-  if(currentRole !== "admin"){
-    return;
-  }
+    addHistory(
 
-  state.penalty =
-    Number((state.penalty + value).toFixed(1));
+      "bonus",
 
-  addHistory(
-    "penalty",
-    value,
-    "Штраф"
-  );
+      value,
 
-  await save();
+      currentRole === "admin"
+        ? "Бонус адміністратора"
+        : "Бонус користувача"
 
-};
+    );
+
+
+    await save();
+
+  };
+
+
+/* PENALTY
+
+   ТІЛЬКИ ADMIN
+*/
+
+window.addPenalty =
+  async function(value){
+
+    if(
+      currentRole !== "admin"
+    ){
+
+      return;
+
+    }
+
+
+    state.penalty =
+      Number(
+        (
+          state.penalty + value
+        ).toFixed(1)
+      );
+
+
+    addHistory(
+
+      "penalty",
+
+      value,
+
+      "Штраф"
+
+    );
+
+
+    await save();
+
+  };
 
 
 /* WEEK NUMBER */
 
 function getWeekKey(){
 
-  const now = new Date();
+  const now =
+    new Date();
+
 
   const first =
-    new Date(now.getFullYear(),0,1);
+    new Date(
+      now.getFullYear(),
+      0,
+      1
+    );
+
 
   const days =
     Math.floor(
-      (now-first)/86400000
+      (now - first) /
+      86400000
     );
+
 
   const week =
     Math.ceil(
-      (days + first.getDay()+1)/7
+      (
+        days +
+        first.getDay() +
+        1
+      ) / 7
     );
 
-  return now.getFullYear()+"-"+week;
+
+  return (
+    now.getFullYear() +
+    "-" +
+    week
+  );
 
 }
 
 
-/* WEEKLY BONUS */
+/* WEEKLY BONUS
 
-window.giveWeekly = async function(){
+   ТІЛЬКИ ADMIN
+*/
 
-  if(currentRole !== "admin"){
-    return;
-  }
+window.giveWeekly =
+  async function(){
 
-  const week =
-    getWeekKey();
+    if(
+      currentRole !== "admin"
+    ){
 
-  if(state.weeklyWeek === week){
-
-    alert("Щотижневий бонус уже виданий цього тижня.");
-
-    return;
-
-  }
-
-  state.earned =
-    Number((state.earned + 1).toFixed(1));
-
-  state.weeklyWeek = week;
-
-  addHistory(
-    "weekly",
-    1,
-    "Щотижневий бонус"
-  );
-
-  await save();
-
-};
-
-
-/* UNDO */
-
-window.undoLast = async function(){
-
-  if(currentRole !== "admin"){
-    return;
-  }
-
-  if(!state.history.length){
-
-    alert("Немає дій для скасування.");
-
-    return;
-
-  }
-
-  const last =
-    state.history[state.history.length-1];
-
-  if(last.type === "bonus" ||
-     last.type === "weekly"){
-
-    state.earned =
-      Math.max(
-        0,
-        Number(
-          (state.earned-last.value).toFixed(1)
-        )
-      );
-
-    if(last.type === "weekly"){
-
-      state.weeklyWeek = "";
+      return;
 
     }
 
-  }
 
-  if(last.type === "penalty"){
+    const week =
+      getWeekKey();
 
-    state.penalty =
-      Math.max(
-        0,
-        Number(
-          (state.penalty-last.value).toFixed(1)
-        )
+
+    if(
+      state.weeklyWeek === week
+    ){
+
+      alert(
+        "Щотижневий бонус уже виданий цього тижня."
       );
 
-  }
+      return;
 
-  state.history.pop();
-
-  await save();
-
-};
+    }
 
 
-/* RESET */
+    state.earned =
+      Number(
+        (
+          state.earned + 1
+        ).toFixed(1)
+      );
 
-window.resetAll = async function(){
 
-  if(currentRole !== "admin"){
-    return;
-  }
+    state.weeklyWeek =
+      week;
 
-  const ok =
-    confirm(
-      "Точно скинути весь прогрес?"
+
+    addHistory(
+
+      "weekly",
+
+      1,
+
+      "Щотижневий бонус"
+
     );
 
-  if(!ok){
-    return;
-  }
 
-  state = {
-
-    earned:0,
-
-    penalty:0,
-
-    weeklyWeek:"",
-
-    history:[]
+    await save();
 
   };
 
-  await save();
 
-};
+/* UNDO
+
+   ТІЛЬКИ ADMIN
+*/
+
+window.undoLast =
+  async function(){
+
+    if(
+      currentRole !== "admin"
+    ){
+
+      return;
+
+    }
+
+
+    if(
+      !state.history.length
+    ){
+
+      alert(
+        "Немає дій для скасування."
+      );
+
+      return;
+
+    }
+
+
+    const last =
+      state.history[
+        state.history.length - 1
+      ];
+
+
+    if(
+      last.type === "bonus" ||
+      last.type === "weekly"
+    ){
+
+      state.earned =
+        Math.max(
+
+          0,
+
+          Number(
+            (
+              state.earned -
+              last.value
+            ).toFixed(1)
+          )
+
+        );
+
+
+      if(
+        last.type === "weekly"
+      ){
+
+        state.weeklyWeek =
+          "";
+
+      }
+
+    }
+
+
+    if(
+      last.type === "penalty"
+    ){
+
+      state.penalty =
+        Math.max(
+
+          0,
+
+          Number(
+            (
+              state.penalty -
+              last.value
+            ).toFixed(1)
+          )
+
+        );
+
+    }
+
+
+    state.history.pop();
+
+
+    await save();
+
+  };
+
+
+/* RESET
+
+   ТІЛЬКИ ADMIN
+*/
+
+window.resetAll =
+  async function(){
+
+    if(
+      currentRole !== "admin"
+    ){
+
+      return;
+
+    }
+
+
+    const ok =
+      confirm(
+        "Точно скинути весь прогрес?"
+      );
+
+
+    if(!ok){
+
+      return;
+
+    }
+
+
+    state = {
+
+      earned:0,
+
+      penalty:0,
+
+      weeklyWeek:"",
+
+      history:[]
+
+    };
+
+
+    await save();
+
+  };
 
 
 /* RENDER */
@@ -1359,48 +1863,68 @@ window.resetAll = async function(){
 function render(){
 
   const earned =
-    Number(state.earned || 0);
+    Number(
+      state.earned || 0
+    );
+
 
   const penalty =
-    Number(state.penalty || 0);
+    Number(
+      state.penalty || 0
+    );
+
 
   const net =
-    Number((earned-penalty).toFixed(1));
+    Number(
+      (
+        earned - penalty
+      ).toFixed(1)
+    );
 
 
   /* PURCHASE DATE */
 
   const purchase =
-    new Date(BASE_DATE.getTime());
+    new Date(
+      BASE_DATE.getTime()
+    );
+
 
   purchase.setTime(
+
     purchase.getTime() -
-    net*86400000
+    net * 86400000
+
   );
 
 
-  const dateText =
-    formatDate(purchase);
-
   document
     .getElementById("purchaseDate")
-    .textContent = dateText;
+    .textContent =
+      formatDate(purchase);
 
 
-  /* DAYS */
+  /* DAYS LEFT */
 
   const today =
     new Date();
 
+
   const daysLeft =
     Math.ceil(
-      (purchase-today)/86400000
+      (
+        purchase - today
+      ) / 86400000
     );
+
 
   document
     .getElementById("daysLeft")
     .textContent =
-      Math.max(0,daysLeft);
+      Math.max(
+        0,
+        daysLeft
+      );
 
 
   /* STATS */
@@ -1410,15 +1934,18 @@ function render(){
     .textContent =
       cleanNumber(earned);
 
+
   document
     .getElementById("penaltyStat")
     .textContent =
       cleanNumber(penalty);
 
+
   document
     .getElementById("netStat")
     .textContent =
       cleanNumber(net);
+
 
   document
     .getElementById("netResult")
@@ -1429,7 +1956,9 @@ function render(){
   /* RESULT LABEL */
 
   const label =
-    document.getElementById("resultLabel");
+    document
+      .getElementById("resultLabel");
+
 
   if(net > 0){
 
@@ -1453,22 +1982,30 @@ function render(){
 
   const progress =
     Math.max(
+
       0,
+
       Math.min(
+
         100,
-        (net/30)*100
+
+        (net / 30) * 100
+
       )
+
     );
+
 
   document
     .getElementById("progressFill")
     .style.width =
-      progress+"%";
+      progress + "%";
+
 
   document
     .getElementById("progressText")
     .textContent =
-      Math.round(progress)+"%";
+      Math.round(progress) + "%";
 
 
   /* WEEKLY */
@@ -1476,26 +2013,37 @@ function render(){
   const week =
     getWeekKey();
 
+
   const weeklyBtn =
-    document.getElementById("weeklyBtn");
+    document
+      .getElementById("weeklyBtn");
+
 
   const weeklyStatus =
-    document.getElementById("weeklyStatus");
+    document
+      .getElementById("weeklyStatus");
 
-  if(state.weeklyWeek === week){
 
-    weeklyBtn.disabled = true;
+  if(
+    state.weeklyWeek === week
+  ){
 
-    weeklyBtn.textContent = "✓";
+    weeklyBtn.disabled =
+      true;
+
+    weeklyBtn.textContent =
+      "✓";
 
     weeklyStatus.textContent =
       "Вже видано цього тижня";
 
   }else{
 
-    weeklyBtn.disabled = false;
+    weeklyBtn.disabled =
+      false;
 
-    weeklyBtn.textContent = "+1";
+    weeklyBtn.textContent =
+      "+1";
 
     weeklyStatus.textContent =
       "+1 день • доступно";
@@ -1510,29 +2058,34 @@ function render(){
 function formatDate(date){
 
   const d =
-    String(date.getDate()).padStart(2,"0");
+    String(
+      date.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
+
 
   const m =
-    String(date.getMonth()+1).padStart(2,"0");
+    String(
+      date.getMonth() + 1
+    ).padStart(
+      2,
+      "0"
+    );
+
 
   const y =
     date.getFullYear();
 
-  const hours =
-    date.getHours();
 
-  const minutes =
-    date.getMinutes();
-
-  /* Показуємо половину дня */
-
-  if(hours === 12 && minutes === 0){
-
-    return `${d}.${m}.${y}`;
-
-  }
-
-  return `${d}.${m}.${y}`;
+  return (
+    d +
+    "." +
+    m +
+    "." +
+    y
+  );
 
 }
 
@@ -1541,11 +2094,14 @@ function formatDate(date){
 
 function cleanNumber(number){
 
-  if(number % 1 === 0){
+  if(
+    number % 1 === 0
+  ){
 
     return String(number);
 
   }
+
 
   return number.toFixed(1);
 
@@ -1554,28 +2110,34 @@ function cleanNumber(number){
 
 /* LOGOUT */
 
-window.logout = function(){
+window.logout =
+  function(){
 
-  sessionStorage.removeItem("role");
+    sessionStorage.removeItem(
+      "role"
+    );
 
-  location.reload();
+    location.reload();
 
-};
+  };
 
 
 /* ENTER */
 
 document
   .getElementById("password")
-  .addEventListener("keydown",(e)=>{
+  .addEventListener(
+    "keydown",
+    (e)=>{
 
-    if(e.key === "Enter"){
+      if(e.key === "Enter"){
 
-      loginUser();
+        loginUser();
+
+      }
 
     }
-
-  });
+  );
 
 </script>
 
