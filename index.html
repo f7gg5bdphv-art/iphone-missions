@@ -1,268 +1,1102 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>iPhone Mission</title>
 
-  <title>iPhone Mission</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+:root{
+--bg:#07080b;
+--card:#111318;
+--text:#f5f5f7;
+--muted:#8e919a;
+--blue:#4da3ff;
+--green:#39d98a;
+--red:#ff5c62;
+}
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #000000, #151515);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+body{
+font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+background:radial-gradient(circle at 50% -10%,#26344a 0,#0d1016 35%,#07080b 70%);
+min-height:100vh;
+color:var(--text);
+padding:20px 14px 34px;
+}
 
-    .container {
-      width: 100%;
-      max-width: 420px;
-    }
+button,input{font:inherit}
 
-    .card {
-      background: #1c1c1e;
-      border-radius: 28px;
-      padding: 30px 24px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-      text-align: center;
-    }
+.app{
+width:100%;
+max-width:520px;
+margin:auto;
+}
 
-    .logo {
-      font-size: 55px;
-      margin-bottom: 10px;
-    }
+.hidden{display:none!important}
 
-    h1 {
-      font-size: 30px;
-      margin-bottom: 8px;
-    }
+.login-wrap{
+min-height:calc(100vh - 54px);
+display:flex;
+align-items:center;
+justify-content:center;
+}
 
-    .subtitle {
-      color: #a1a1a6;
-      margin-bottom: 28px;
-    }
+.login-card{
+width:100%;
+background:rgba(17,19,24,.88);
+border:1px solid #292d36;
+border-radius:30px;
+padding:30px 22px;
+box-shadow:0 30px 80px rgba(0,0,0,.55);
+backdrop-filter:blur(18px);
+text-align:center;
+}
 
-    input {
-      width: 100%;
-      padding: 16px;
-      margin-bottom: 14px;
-      border: none;
-      border-radius: 14px;
-      background: #2c2c2e;
-      color: white;
-      font-size: 16px;
-      outline: none;
-    }
+.eyebrow{
+font-size:11px;
+letter-spacing:2.5px;
+color:#9da5b3;
+font-weight:800;
+text-transform:uppercase;
+}
 
-    input:focus {
-      box-shadow: 0 0 0 2px #0a84ff;
-    }
+.login-card h1{
+font-size:36px;
+letter-spacing:-1.4px;
+margin:9px 0 7px;
+}
 
-    button {
-      width: 100%;
-      padding: 16px;
-      border: none;
-      border-radius: 14px;
-      background: #0a84ff;
-      color: white;
-      font-size: 17px;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 5px;
-    }
+.sub{
+color:var(--muted);
+font-size:15px;
+line-height:1.45;
+}
 
-    button:active {
-      transform: scale(0.98);
-    }
+.logo-mark{
+width:78px;
+height:78px;
+margin:0 auto 18px;
+border-radius:24px;
+background:linear-gradient(145deg,#20242c,#0d0f13);
+border:1px solid #343944;
+display:grid;
+place-items:center;
+font-size:43px;
+box-shadow:
+inset 0 1px rgba(255,255,255,.08),
+0 18px 35px rgba(0,0,0,.35);
+}
 
-    .error {
-      color: #ff453a;
-      margin-top: 15px;
-      display: none;
-    }
+.field{
+text-align:left;
+margin-top:18px;
+}
 
-    .success {
-      display: none;
-    }
+.field label{
+display:block;
+color:#aeb2bb;
+font-size:13px;
+margin:0 0 7px 4px;
+}
 
-    .mission {
-      background: #2c2c2e;
-      border-radius: 18px;
-      padding: 20px;
-      margin-top: 20px;
-      text-align: left;
-    }
+.field input{
+width:100%;
+height:54px;
+border:1px solid #30343d;
+border-radius:16px;
+background:#0b0d11;
+color:white;
+padding:0 16px;
+outline:none;
+}
 
-    .mission h2 {
-      margin-bottom: 10px;
-    }
+.field input:focus{
+border-color:var(--blue);
+box-shadow:0 0 0 3px rgba(77,163,255,.15);
+}
 
-    .mission p {
-      color: #d1d1d6;
-      line-height: 1.5;
-    }
+.btn{
+border:0;
+border-radius:16px;
+height:54px;
+width:100%;
+margin-top:14px;
+background:linear-gradient(135deg,#5db0ff,#267ff0);
+color:white;
+font-weight:800;
+font-size:16px;
+box-shadow:0 12px 28px rgba(38,127,240,.25);
+cursor:pointer;
+}
 
-    .logout {
-      background: #ff453a;
-      margin-top: 20px;
-    }
-  </style>
+.error{
+min-height:20px;
+color:var(--red);
+font-size:13px;
+margin-top:12px;
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:4px 3px 18px;
+}
+
+.brand{
+font-weight:900;
+font-size:19px;
+letter-spacing:-.5px;
+}
+
+.brand span{
+color:#8e929b;
+font-weight:600;
+}
+
+.badge{
+font-size:12px;
+font-weight:800;
+padding:8px 11px;
+border:1px solid #30343d;
+border-radius:999px;
+background:#12151a;
+color:#b9bec8;
+}
+
+.card{
+background:rgba(17,19,24,.9);
+border:1px solid #282c35;
+border-radius:26px;
+padding:20px;
+margin-bottom:13px;
+box-shadow:0 18px 50px rgba(0,0,0,.25);
+overflow:hidden;
+}
+
+.hero{
+padding:24px 20px 21px;
+background:linear-gradient(145deg,#171b23,#0f1116);
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:1fr 145px;
+gap:5px;
+align-items:center;
+}
+
+.kicker{
+font-size:11px;
+letter-spacing:1.8px;
+color:#8e96a3;
+font-weight:900;
+}
+
+.hero h2{
+font-size:31px;
+line-height:1.03;
+letter-spacing:-1.2px;
+margin:7px 0;
+}
+
+.hero-date{
+font-size:28px;
+font-weight:900;
+letter-spacing:-1px;
+margin-top:4px;
+}
+
+.count{
+font-size:14px;
+color:#b4bac5;
+margin-top:6px;
+}
+
+.count strong{
+color:white;
+}
+
+.phone{
+width:135px;
+height:235px;
+margin-left:auto;
+filter:drop-shadow(0 18px 22px rgba(0,0,0,.6));
+}
+
+.phone svg{
+width:100%;
+height:100%;
+}
+
+.progress-title{
+display:flex;
+justify-content:space-between;
+align-items:end;
+margin-top:22px;
+font-size:12px;
+color:#9aa0aa;
+}
+
+.progress-title b{
+color:#e9ebef;
+font-size:13px;
+}
+
+.track{
+height:12px;
+border-radius:99px;
+background:#292d35;
+margin-top:8px;
+overflow:hidden;
+border:1px solid #323640;
+}
+
+.fill{
+height:100%;
+width:0%;
+border-radius:99px;
+background:linear-gradient(90deg,#3d8cff,#5be2ad);
+transition:width .35s ease;
+}
+
+.scale{
+display:flex;
+justify-content:space-between;
+color:#676d77;
+font-size:10px;
+margin-top:6px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:9px;
+margin-top:14px;
+}
+
+.stat{
+background:#0c0e12;
+border:1px solid #282c34;
+border-radius:17px;
+padding:13px 8px;
+text-align:center;
+}
+
+.stat b{
+display:block;
+font-size:25px;
+}
+
+.stat small{
+display:block;
+color:#858b96;
+font-size:10px;
+margin-top:4px;
+}
+
+.section-title{
+font-size:19px;
+font-weight:850;
+letter-spacing:-.4px;
+margin-bottom:13px;
+}
+
+.mission{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+padding:14px;
+background:#0c0e12;
+border:1px solid #282c34;
+border-radius:17px;
+margin-top:9px;
+}
+
+.mission-main{
+display:flex;
+align-items:center;
+gap:11px;
+}
+
+.icon{
+width:40px;
+height:40px;
+border-radius:13px;
+background:#191d24;
+display:grid;
+place-items:center;
+font-size:20px;
+}
+
+.mission h3{
+font-size:14px;
+}
+
+.mission p{
+font-size:11px;
+color:#777d87;
+margin-top:3px;
+}
+
+.plus{
+width:42px;
+height:38px;
+border-radius:12px;
+border:1px solid #315d4a;
+background:#10261d;
+color:var(--green);
+font-weight:900;
+cursor:pointer;
+}
+
+.result{
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.big-number{
+font-size:48px;
+font-weight:950;
+letter-spacing:-2px;
+}
+
+.result-label{
+color:#8e949e;
+font-size:12px;
+margin-top:2px;
+}
+
+.result-pill{
+padding:10px 12px;
+border-radius:13px;
+background:#10261d;
+border:1px solid #244d3a;
+color:#67e3a5;
+font-size:12px;
+font-weight:800;
+}
+
+.actions{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:9px;
+}
+
+.secondary{
+height:46px;
+border-radius:14px;
+border:1px solid #30343d;
+background:#15181e;
+color:#dfe2e7;
+font-weight:700;
+}
+
+.logout{
+border-color:#51272b;
+color:#ff858a;
+background:#1b1012;
+}
+
+.note{
+color:#737984;
+font-size:11px;
+text-align:center;
+line-height:1.5;
+margin-top:14px;
+}
+
+@media(max-width:390px){
+.hero-grid{
+grid-template-columns:1fr 112px;
+}
+
+.phone{
+width:105px;
+height:185px;
+}
+
+.hero h2{
+font-size:27px;
+}
+
+.hero-date{
+font-size:24px;
+}
+}
+</style>
 </head>
 
 <body>
 
-  <div class="container">
+<div class="app">
 
-    <!-- LOGIN -->
-    <div class="card" id="loginPage">
+<!-- LOGIN -->
+<div id="loginPage" class="login-wrap">
 
-      <div class="logo">📱</div>
+<div class="login-card">
 
-      <h1>iPhone Mission</h1>
+<div class="logo-mark">📱</div>
 
-      <p class="subtitle">
-        Введи логін та пароль
-      </p>
+<div class="eyebrow">Personal Challenge</div>
 
-      <input
-        type="text"
-        id="login"
-        placeholder="Логін"
-        autocomplete="username"
-      >
+<h1>iPhone Mission</h1>
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Пароль"
-        autocomplete="current-password"
-      >
+<p class="sub">
+Твоя ціль. Твій прогрес.<br>
+Кожен день наближає до iPhone.
+</p>
 
-      <button onclick="loginUser()">
-        Увійти
-      </button>
+<div class="field">
+<label>Логін</label>
+<input
+id="login"
+autocomplete="username"
+placeholder="Введи логін">
+</div>
 
-      <p class="error" id="error">
-        Неправильний логін або пароль
-      </p>
+<div class="field">
+<label>Пароль</label>
+<input
+id="password"
+type="password"
+autocomplete="current-password"
+placeholder="Введи пароль">
+</div>
 
-    </div>
+<button class="btn" onclick="loginUser()">
+Увійти →
+</button>
 
+<div id="error" class="error"></div>
 
-    <!-- MAIN PAGE -->
-    <div class="card success" id="mainPage">
-
-      <div class="logo">🍎</div>
-
-      <h1>iPhone Mission</h1>
-
-      <p class="subtitle">
-        Вітаємо! Ти успішно увійшов.
-      </p>
-
-      <div class="mission">
-        <h2>🎯 Твоя місія</h2>
-
-        <p>
-          Тут буде твій прогрес, завдання
-          та підрахунок балів.
-        </p>
-      </div>
-
-      <div class="mission">
-        <h2>🏆 Прогрес</h2>
-
-        <p>
-          Бали: <strong id="points">0</strong>
-        </p>
-      </div>
-
-      <button onclick="addPoint()">
-        + Додати бал
-      </button>
-
-      <button class="logout" onclick="logoutUser()">
-        Вийти
-      </button>
-
-    </div>
-
-  </div>
+</div>
+</div>
 
 
-  <script>
+<!-- MAIN -->
+<main id="mainPage" class="hidden">
 
-    function loginUser() {
+<div class="top">
 
-      const login = document.getElementById("login").value;
-      const password = document.getElementById("password").value;
+<div class="brand">
+iPhone <span>MISSION</span>
+</div>
 
-      /*
-        ЛОГІН І ПАРОЛЬ
-        Можеш змінити їх тут
-      */
+<div class="badge">
+● Активна місія
+</div>
 
-      const correctLogin = "iphone";
-      const correctPassword = "1234";
-
-      if (
-        login === correctLogin &&
-        password === correctPassword
-      ) {
-
-        document.getElementById("loginPage").style.display = "none";
-        document.getElementById("mainPage").style.display = "block";
-
-        document.getElementById("error").style.display = "none";
-
-      } else {
-
-        document.getElementById("error").style.display = "block";
-
-      }
-    }
+</div>
 
 
-    function addPoint() {
+<!-- HERO -->
+<section class="card hero">
 
-      let points = Number(
-        localStorage.getItem("points") || 0
-      );
+<div class="hero-grid">
 
-      points++;
+<div>
 
-      localStorage.setItem("points", points);
+<div class="kicker">
+ТВОЯ ЦІЛЬ
+</div>
 
-      document.getElementById("points").textContent = points;
-    }
+<h2>
+iPhone Air
+</h2>
+
+<div class="hero-date">
+31.12.2026
+</div>
+
+<div class="count">
+Залишилось
+<strong id="daysLeft">0</strong>
+днів
+</div>
+
+</div>
 
 
-    function logoutUser() {
+<!-- iPHONE AIR -->
+<div class="phone">
 
-      document.getElementById("mainPage").style.display = "none";
-      document.getElementById("loginPage").style.display = "block";
+<svg
+viewBox="0 0 150 260"
+xmlns="http://www.w3.org/2000/svg">
 
-      document.getElementById("login").value = "";
-      document.getElementById("password").value = "";
+<defs>
 
-    }
+<linearGradient
+id="frame"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop
+stop-color="#dce1e8"/>
+
+<stop
+offset=".45"
+stop-color="#8f98a5"/>
+
+<stop
+offset="1"
+stop-color="#eef1f5"/>
+
+</linearGradient>
+
+<linearGradient
+id="screen"
+x1="0"
+y1="0"
+x2="1"
+y2="1">
+
+<stop
+stop-color="#253247"/>
+
+<stop
+offset=".55"
+stop-color="#0d121b"/>
+
+<stop
+offset="1"
+stop-color="#1c4c72"/>
+
+</linearGradient>
+
+</defs>
+
+<rect
+x="17"
+y="3"
+width="116"
+height="254"
+rx="28"
+fill="url(#frame)"/>
+
+<rect
+x="21"
+y="7"
+width="108"
+height="246"
+rx="25"
+fill="#090b0f"/>
+
+<rect
+x="25"
+y="11"
+width="100"
+height="238"
+rx="22"
+fill="url(#screen)"/>
+
+<circle
+cx="75"
+cy="20"
+r="5.5"
+fill="#030407"/>
+
+<rect
+x="61"
+y="16"
+width="28"
+height="8"
+rx="4"
+fill="#030407"/>
+
+<circle
+cx="75"
+cy="132"
+r="39"
+fill="none"
+stroke="#79bfff"
+stroke-opacity=".18"/>
+
+<path
+d="M35 190 Q75 125 115 190"
+fill="none"
+stroke="#74bfff"
+stroke-opacity=".18"
+stroke-width="2"/>
+
+<rect
+x="35"
+y="211"
+width="80"
+height="5"
+rx="3"
+fill="#fff"
+opacity=".14"/>
+
+</svg>
+
+</div>
+
+</div>
 
 
-    // Показуємо збережені бали
-    document.getElementById("points").textContent =
-      localStorage.getItem("points") || 0;
+<!-- PROGRESS -->
+<div class="progress-title">
 
-  </script>
+<span>
+Прогрес до дати
+</span>
+
+<b id="progressText">
+0%
+</b>
+
+</div>
+
+<div class="track">
+<div id="fill" class="fill"></div>
+</div>
+
+<div class="scale">
+
+<span>
+Сьогодні
+</span>
+
+<span>
+Ціль: 31.12.2026
+</span>
+
+</div>
+
+
+<!-- STATS -->
+<div class="stats">
+
+<div class="stat">
+<b id="points">0</b>
+<small>БАЛИ</small>
+</div>
+
+<div class="stat">
+<b id="missions">0</b>
+<small>МІСІЇ</small>
+</div>
+
+<div class="stat">
+<b id="streak">1</b>
+<small>ДНІВ ПІДРЯД</small>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- RESULT -->
+<section class="card">
+
+<div class="section-title">
+🎯 Результат
+</div>
+
+<div class="result">
+
+<div>
+
+<div
+class="big-number"
+id="result">
+0
+</div>
+
+<div class="result-label">
+цілих балів зароблено
+</div>
+
+</div>
+
+<div
+class="result-pill"
+id="resultStatus">
+Місія триває
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MISSIONS -->
+<section class="card">
+
+<div class="section-title">
+🔥 Виконай місію
+</div>
+
+
+<div class="mission">
+
+<div class="mission-main">
+
+<div class="icon">
+📚
+</div>
+
+<div>
+
+<h3>
+Виконав завдання
+</h3>
+
+<p>
++1 бал до результату
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+onclick="addPoints(1)">
++1
+</button>
+
+</div>
+
+
+<div class="mission">
+
+<div class="mission-main">
+
+<div class="icon">
+🏆
+</div>
+
+<div>
+
+<h3>
+Велика місія
+</h3>
+
+<p>
++5 балів до результату
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+onclick="addPoints(5)">
++5
+</button>
+
+</div>
+
+</section>
+
+
+<!-- CONTROL -->
+<section class="card">
+
+<div class="section-title">
+⚡ Керування
+</div>
+
+<div class="actions">
+
+<button
+class="secondary"
+onclick="resetPoints()">
+Скинути результат
+</button>
+
+<button
+class="secondary logout"
+onclick="logoutUser()">
+Вийти
+</button>
+
+</div>
+
+<p class="note">
+
+Результат зберігається на цьому пристрої автоматично.<br>
+
+Усі значення показуються цілими числами.
+
+</p>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script>
+
+const TARGET =
+new Date("2026-12-31T00:00:00");
+
+
+function $(id){
+return document.getElementById(id);
+}
+
+
+/* LOGIN */
+
+function loginUser(){
+
+const login =
+$("login").value.trim();
+
+const password =
+$("password").value;
+
+if(
+login === "iphone" &&
+password === "1234"
+){
+
+localStorage.setItem(
+"logged",
+"1"
+);
+
+$("loginPage")
+.classList.add("hidden");
+
+$("mainPage")
+.classList.remove("hidden");
+
+render();
+
+}else{
+
+$("error").textContent =
+"❌ Неправильний логін або пароль";
+
+}
+
+}
+
+
+/* ADD POINTS */
+
+function addPoints(n){
+
+let points =
+Math.floor(
+parseInt(
+localStorage.getItem("points") || "0",
+10
+)
+) + n;
+
+localStorage.setItem(
+"points",
+points
+);
+
+
+let missions =
+Math.floor(
+parseInt(
+localStorage.getItem("missions") || "0",
+10
+)
+) + 1;
+
+localStorage.setItem(
+"missions",
+missions
+);
+
+render();
+
+}
+
+
+/* RESET */
+
+function resetPoints(){
+
+if(
+confirm(
+"Скинути результат до 0?"
+)
+){
+
+localStorage.setItem(
+"points",
+"0"
+);
+
+localStorage.setItem(
+"missions",
+"0"
+);
+
+render();
+
+}
+
+}
+
+
+/* LOGOUT */
+
+function logoutUser(){
+
+localStorage.removeItem(
+"logged"
+);
+
+$("mainPage")
+.classList.add("hidden");
+
+$("loginPage")
+.classList.remove("hidden");
+
+$("login").value="";
+$("password").value="";
+
+}
+
+
+/* RENDER */
+
+function render(){
+
+let points =
+Math.floor(
+parseInt(
+localStorage.getItem("points") || "0",
+10
+)
+);
+
+let missions =
+Math.floor(
+parseInt(
+localStorage.getItem("missions") || "0",
+10
+)
+);
+
+
+let now =
+new Date();
+
+now.setHours(
+0,0,0,0
+);
+
+
+let days =
+Math.max(
+0,
+Math.ceil(
+(TARGET - now) /
+86400000
+)
+);
+
+
+let total =
+Math.ceil(
+(
+TARGET -
+new Date("2026-01-01T00:00:00")
+) /
+86400000
+);
+
+
+let elapsed =
+Math.max(
+0,
+total - days
+);
+
+
+let percent =
+Math.min(
+100,
+Math.max(
+0,
+Math.round(
+elapsed / total * 100
+)
+)
+);
+
+
+$("daysLeft").textContent =
+days;
+
+$("points").textContent =
+points;
+
+$("result").textContent =
+points;
+
+$("missions").textContent =
+missions;
+
+$("progressText").textContent =
+percent + "%";
+
+$("fill").style.width =
+percent + "%";
+
+
+$("resultStatus").textContent =
+days === 0
+? "🎉 Час настав!"
+: "Місія триває";
+
+}
+
+
+/* ENTER */
+
+$("password")
+.addEventListener(
+"keydown",
+function(e){
+
+if(e.key === "Enter"){
+loginUser();
+}
+
+});
+
+
+/* AUTO LOGIN */
+
+if(
+localStorage.getItem("logged") === "1"
+){
+
+$("loginPage")
+.classList.add("hidden");
+
+$("mainPage")
+.classList.remove("hidden");
+
+}
+
+render();
+
+</script>
 
 </body>
 </html>
