@@ -3,430 +3,514 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
 <title>iPhone Mission</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
 :root{
---bg:#07080b;
---card:#111318;
---text:#f5f5f7;
---muted:#8e919a;
---blue:#4da3ff;
---green:#39d98a;
---red:#ff5c62;
+  --bg:#07080b;
+  --card:#111318;
+  --text:#f5f5f7;
+  --muted:#8e919a;
+  --blue:#4da3ff;
+  --green:#39d98a;
+  --red:#ff5c62;
 }
 
 body{
-font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-background:radial-gradient(circle at 50% -10%,#26344a 0,#0d1016 35%,#07080b 70%);
-min-height:100vh;
-color:var(--text);
-padding:20px 14px 34px;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 50% -10%,#26344a 0,#0d1016 35%,#07080b 70%);
+  min-height:100vh;
+  color:var(--text);
+  padding:20px 14px 34px;
 }
 
-button,input{font:inherit}
+button,
+input{
+  font:inherit;
+}
 
 .app{
-width:100%;
-max-width:520px;
-margin:auto;
+  width:100%;
+  max-width:520px;
+  margin:auto;
 }
 
-.hidden{display:none!important}
+.hidden{
+  display:none!important;
+}
+
+/* LOGIN */
 
 .login-wrap{
-min-height:calc(100vh - 54px);
-display:flex;
-align-items:center;
-justify-content:center;
+  min-height:calc(100vh - 54px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .login-card{
-width:100%;
-background:rgba(17,19,24,.88);
-border:1px solid #292d36;
-border-radius:30px;
-padding:30px 22px;
-box-shadow:0 30px 80px rgba(0,0,0,.55);
-backdrop-filter:blur(18px);
-text-align:center;
-}
-
-.eyebrow{
-font-size:11px;
-letter-spacing:2.5px;
-color:#9da5b3;
-font-weight:800;
-text-transform:uppercase;
-}
-
-.login-card h1{
-font-size:36px;
-letter-spacing:-1.4px;
-margin:9px 0 7px;
-}
-
-.sub{
-color:var(--muted);
-font-size:15px;
-line-height:1.45;
+  width:100%;
+  background:rgba(17,19,24,.88);
+  border:1px solid #292d36;
+  border-radius:30px;
+  padding:30px 22px;
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  backdrop-filter:blur(18px);
+  text-align:center;
 }
 
 .logo-mark{
-width:78px;
-height:78px;
-margin:0 auto 18px;
-border-radius:24px;
-background:linear-gradient(145deg,#20242c,#0d0f13);
-border:1px solid #343944;
-display:grid;
-place-items:center;
-font-size:43px;
-box-shadow:
-inset 0 1px rgba(255,255,255,.08),
-0 18px 35px rgba(0,0,0,.35);
+  width:78px;
+  height:78px;
+  margin:0 auto 18px;
+  border-radius:24px;
+  background:linear-gradient(145deg,#20242c,#0d0f13);
+  border:1px solid #343944;
+  display:grid;
+  place-items:center;
+  font-size:43px;
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.08),
+    0 18px 35px rgba(0,0,0,.35);
+}
+
+.eyebrow{
+  font-size:11px;
+  letter-spacing:2.5px;
+  color:#9da5b3;
+  font-weight:800;
+  text-transform:uppercase;
+}
+
+.login-card h1{
+  font-size:36px;
+  letter-spacing:-1.4px;
+  margin:9px 0 7px;
+}
+
+.sub{
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.45;
 }
 
 .field{
-text-align:left;
-margin-top:18px;
+  text-align:left;
+  margin-top:18px;
 }
 
 .field label{
-display:block;
-color:#aeb2bb;
-font-size:13px;
-margin:0 0 7px 4px;
+  display:block;
+  color:#aeb2bb;
+  font-size:13px;
+  margin:0 0 7px 4px;
 }
 
 .field input{
-width:100%;
-height:54px;
-border:1px solid #30343d;
-border-radius:16px;
-background:#0b0d11;
-color:white;
-padding:0 16px;
-outline:none;
+  width:100%;
+  height:54px;
+  border:1px solid #30343d;
+  border-radius:16px;
+  background:#0b0d11;
+  color:white;
+  padding:0 16px;
+  outline:none;
 }
 
 .field input:focus{
-border-color:var(--blue);
-box-shadow:0 0 0 3px rgba(77,163,255,.15);
+  border-color:var(--blue);
+  box-shadow:0 0 0 3px rgba(77,163,255,.15);
 }
 
 .btn{
-border:0;
-border-radius:16px;
-height:54px;
-width:100%;
-margin-top:14px;
-background:linear-gradient(135deg,#5db0ff,#267ff0);
-color:white;
-font-weight:800;
-font-size:16px;
-box-shadow:0 12px 28px rgba(38,127,240,.25);
-cursor:pointer;
+  border:0;
+  border-radius:16px;
+  height:54px;
+  width:100%;
+  margin-top:14px;
+  background:linear-gradient(135deg,#5db0ff,#267ff0);
+  color:white;
+  font-weight:800;
+  font-size:16px;
+  box-shadow:0 12px 28px rgba(38,127,240,.25);
+  cursor:pointer;
 }
 
 .error{
-min-height:20px;
-color:var(--red);
-font-size:13px;
-margin-top:12px;
+  min-height:20px;
+  color:var(--red);
+  font-size:13px;
+  margin-top:12px;
 }
 
+/* TOP */
+
 .top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:4px 3px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:4px 3px 18px;
 }
 
 .brand{
-font-weight:900;
-font-size:19px;
-letter-spacing:-.5px;
+  font-weight:900;
+  font-size:19px;
+  letter-spacing:-.5px;
 }
 
 .brand span{
-color:#8e929b;
-font-weight:600;
+  color:#8e929b;
+  font-weight:600;
 }
 
 .badge{
-font-size:12px;
-font-weight:800;
-padding:8px 11px;
-border:1px solid #30343d;
-border-radius:999px;
-background:#12151a;
-color:#b9bec8;
+  font-size:12px;
+  font-weight:800;
+  padding:8px 11px;
+  border:1px solid #30343d;
+  border-radius:999px;
+  background:#12151a;
+  color:#b9bec8;
 }
 
+/* CARDS */
+
 .card{
-background:rgba(17,19,24,.9);
-border:1px solid #282c35;
-border-radius:26px;
-padding:20px;
-margin-bottom:13px;
-box-shadow:0 18px 50px rgba(0,0,0,.25);
-overflow:hidden;
+  background:rgba(17,19,24,.9);
+  border:1px solid #282c35;
+  border-radius:26px;
+  padding:20px;
+  margin-bottom:13px;
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+  overflow:hidden;
 }
 
 .hero{
-padding:24px 20px 21px;
-background:linear-gradient(145deg,#171b23,#0f1116);
+  padding:24px 20px 21px;
+  background:linear-gradient(145deg,#171b23,#0f1116);
 }
 
 .hero-grid{
-display:grid;
-grid-template-columns:1fr 145px;
-gap:5px;
-align-items:center;
+  display:grid;
+  grid-template-columns:1fr 145px;
+  gap:5px;
+  align-items:center;
 }
 
 .kicker{
-font-size:11px;
-letter-spacing:1.8px;
-color:#8e96a3;
-font-weight:900;
+  font-size:11px;
+  letter-spacing:1.8px;
+  color:#8e96a3;
+  font-weight:900;
 }
 
 .hero h2{
-font-size:31px;
-line-height:1.03;
-letter-spacing:-1.2px;
-margin:7px 0;
+  font-size:31px;
+  line-height:1.03;
+  letter-spacing:-1.2px;
+  margin:7px 0;
 }
 
 .hero-date{
-font-size:28px;
-font-weight:900;
-letter-spacing:-1px;
-margin-top:4px;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-1px;
+  margin-top:4px;
 }
 
 .count{
-font-size:14px;
-color:#b4bac5;
-margin-top:6px;
+  font-size:14px;
+  color:#b4bac5;
+  margin-top:6px;
 }
 
 .count strong{
-color:white;
+  color:white;
 }
 
+/* PHONE */
+
 .phone{
-width:135px;
-height:235px;
-margin-left:auto;
-filter:drop-shadow(0 18px 22px rgba(0,0,0,.6));
+  width:135px;
+  height:235px;
+  margin-left:auto;
+  filter:drop-shadow(0 18px 22px rgba(0,0,0,.6));
 }
 
 .phone svg{
-width:100%;
-height:100%;
+  width:100%;
+  height:100%;
 }
 
+/* PROGRESS */
+
 .progress-title{
-display:flex;
-justify-content:space-between;
-align-items:end;
-margin-top:22px;
-font-size:12px;
-color:#9aa0aa;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  margin-top:22px;
+  font-size:12px;
+  color:#9aa0aa;
 }
 
 .progress-title b{
-color:#e9ebef;
-font-size:13px;
+  color:#e9ebef;
+  font-size:13px;
 }
 
 .track{
-height:12px;
-border-radius:99px;
-background:#292d35;
-margin-top:8px;
-overflow:hidden;
-border:1px solid #323640;
+  height:12px;
+  border-radius:99px;
+  background:#292d35;
+  margin-top:8px;
+  overflow:hidden;
+  border:1px solid #323640;
 }
 
 .fill{
-height:100%;
-width:0%;
-border-radius:99px;
-background:linear-gradient(90deg,#3d8cff,#5be2ad);
-transition:width .35s ease;
+  height:100%;
+  width:0%;
+  border-radius:99px;
+  background:linear-gradient(90deg,#3d8cff,#5be2ad);
+  transition:width .35s ease;
 }
 
 .scale{
-display:flex;
-justify-content:space-between;
-color:#676d77;
-font-size:10px;
-margin-top:6px;
+  display:flex;
+  justify-content:space-between;
+  color:#676d77;
+  font-size:10px;
+  margin-top:6px;
 }
 
+/* STATS */
+
 .stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:9px;
-margin-top:14px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:9px;
+  margin-top:14px;
 }
 
 .stat{
-background:#0c0e12;
-border:1px solid #282c34;
-border-radius:17px;
-padding:13px 8px;
-text-align:center;
+  background:#0c0e12;
+  border:1px solid #282c34;
+  border-radius:17px;
+  padding:13px 8px;
+  text-align:center;
 }
 
 .stat b{
-display:block;
-font-size:25px;
+  display:block;
+  font-size:25px;
 }
 
 .stat small{
-display:block;
-color:#858b96;
-font-size:10px;
-margin-top:4px;
+  display:block;
+  color:#858b96;
+  font-size:10px;
+  margin-top:4px;
 }
+
+/* SECTION */
 
 .section-title{
-font-size:19px;
-font-weight:850;
-letter-spacing:-.4px;
-margin-bottom:13px;
+  font-size:19px;
+  font-weight:850;
+  letter-spacing:-.4px;
+  margin-bottom:13px;
 }
 
+/* MISSIONS */
+
 .mission{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:12px;
-padding:14px;
-background:#0c0e12;
-border:1px solid #282c34;
-border-radius:17px;
-margin-top:9px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px;
+  background:#0c0e12;
+  border:1px solid #282c34;
+  border-radius:17px;
+  margin-top:9px;
 }
 
 .mission-main{
-display:flex;
-align-items:center;
-gap:11px;
+  display:flex;
+  align-items:center;
+  gap:11px;
 }
 
 .icon{
-width:40px;
-height:40px;
-border-radius:13px;
-background:#191d24;
-display:grid;
-place-items:center;
-font-size:20px;
+  width:40px;
+  height:40px;
+  border-radius:13px;
+  background:#191d24;
+  display:grid;
+  place-items:center;
+  font-size:20px;
+  flex-shrink:0;
 }
 
 .mission h3{
-font-size:14px;
+  font-size:14px;
 }
 
 .mission p{
-font-size:11px;
-color:#777d87;
-margin-top:3px;
+  font-size:11px;
+  color:#777d87;
+  margin-top:3px;
 }
 
 .plus{
-width:42px;
-height:38px;
-border-radius:12px;
-border:1px solid #315d4a;
-background:#10261d;
-color:var(--green);
-font-weight:900;
-cursor:pointer;
+  width:52px;
+  height:38px;
+  border-radius:12px;
+  border:1px solid #315d4a;
+  background:#10261d;
+  color:var(--green);
+  font-weight:900;
+  cursor:pointer;
+  flex-shrink:0;
 }
 
+.plus:disabled{
+  opacity:.35;
+  cursor:not-allowed;
+}
+
+/* RESULT */
+
 .result{
-display:flex;
-align-items:center;
-justify-content:space-between;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .big-number{
-font-size:48px;
-font-weight:950;
-letter-spacing:-2px;
+  font-size:48px;
+  font-weight:950;
+  letter-spacing:-2px;
 }
 
 .result-label{
-color:#8e949e;
-font-size:12px;
-margin-top:2px;
+  color:#8e949e;
+  font-size:12px;
+  margin-top:2px;
 }
 
 .result-pill{
-padding:10px 12px;
-border-radius:13px;
-background:#10261d;
-border:1px solid #244d3a;
-color:#67e3a5;
-font-size:12px;
-font-weight:800;
+  padding:10px 12px;
+  border-radius:13px;
+  background:#10261d;
+  border:1px solid #244d3a;
+  color:#67e3a5;
+  font-size:12px;
+  font-weight:800;
 }
 
+/* ADMIN */
+
+.admin-panel{
+  border-color:#514625;
+  background:linear-gradient(145deg,#18170f,#111318);
+}
+
+.admin-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.admin-badge{
+  font-size:10px;
+  color:#ffd76a;
+  border:1px solid #5b4c23;
+  background:#27200c;
+  border-radius:99px;
+  padding:6px 8px;
+  font-weight:800;
+}
+
+.admin-note{
+  font-size:11px;
+  color:#8d949f;
+  margin:-4px 0 9px;
+}
+
+.penalty .plus{
+  border-color:#612f34;
+  background:#211013;
+  color:#ff7c82;
+}
+
+.role-note{
+  font-size:12px;
+  color:#8d949f;
+  margin-top:8px;
+  line-height:1.5;
+}
+
+/* ACTIONS */
+
 .actions{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:9px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
 }
 
 .secondary{
-height:46px;
-border-radius:14px;
-border:1px solid #30343d;
-background:#15181e;
-color:#dfe2e7;
-font-weight:700;
+  min-height:46px;
+  border-radius:14px;
+  border:1px solid #30343d;
+  background:#15181e;
+  color:#dfe2e7;
+  font-weight:700;
+  padding:8px;
 }
 
 .logout{
-border-color:#51272b;
-color:#ff858a;
-background:#1b1012;
+  border-color:#51272b;
+  color:#ff858a;
+  background:#1b1012;
 }
 
 .note{
-color:#737984;
-font-size:11px;
-text-align:center;
-line-height:1.5;
-margin-top:14px;
+  color:#737984;
+  font-size:11px;
+  text-align:center;
+  line-height:1.5;
+  margin-top:14px;
 }
 
 @media(max-width:390px){
-.hero-grid{
-grid-template-columns:1fr 112px;
-}
 
-.phone{
-width:105px;
-height:185px;
-}
+  .hero-grid{
+    grid-template-columns:1fr 112px;
+  }
 
-.hero h2{
-font-size:27px;
-}
+  .phone{
+    width:105px;
+    height:185px;
+  }
 
-.hero-date{
-font-size:24px;
-}
+  .hero h2{
+    font-size:27px;
+  }
+
+  .hero-date{
+    font-size:24px;
+  }
+
 }
 </style>
 </head>
@@ -436,15 +520,20 @@ font-size:24px;
 <div class="app">
 
 <!-- LOGIN -->
+
 <div id="loginPage" class="login-wrap">
 
 <div class="login-card">
 
 <div class="logo-mark">📱</div>
 
-<div class="eyebrow">Personal Challenge</div>
+<div class="eyebrow">
+Personal Challenge
+</div>
 
-<h1>iPhone Mission</h1>
+<h1>
+iPhone Mission
+</h1>
 
 <p class="sub">
 Твоя ціль. Твій прогрес.<br>
@@ -452,34 +541,55 @@ font-size:24px;
 </p>
 
 <div class="field">
-<label>Логін</label>
+
+<label>
+Логін
+</label>
+
 <input
 id="login"
 autocomplete="username"
 placeholder="Введи логін">
+
 </div>
 
 <div class="field">
-<label>Пароль</label>
+
+<label>
+Пароль
+</label>
+
 <input
 id="password"
 type="password"
 autocomplete="current-password"
 placeholder="Введи пароль">
+
 </div>
 
-<button class="btn" onclick="loginUser()">
+<button
+class="btn"
+onclick="loginUser()">
+
 Увійти →
+
 </button>
 
-<div id="error" class="error"></div>
+<div
+id="error"
+class="error">
+</div>
 
 </div>
+
 </div>
 
 
 <!-- MAIN -->
-<main id="mainPage" class="hidden">
+
+<main
+id="mainPage"
+class="hidden">
 
 <div class="top">
 
@@ -487,14 +597,19 @@ placeholder="Введи пароль">
 iPhone <span>MISSION</span>
 </div>
 
-<div class="badge">
-● Активна місія
+<div
+class="badge"
+id="roleBadge">
+
+● Користувач
+
 </div>
 
 </div>
 
 
 <!-- HERO -->
+
 <section class="card hero">
 
 <div class="hero-grid">
@@ -509,20 +624,29 @@ iPhone <span>MISSION</span>
 iPhone Air
 </h2>
 
-<div class="hero-date">
+<div
+class="hero-date"
+id="purchaseDate">
+
 31.12.2026
+
 </div>
 
 <div class="count">
-Залишилось
-<strong id="daysLeft">0</strong>
+
+До покупки залишилось
+<strong id="daysLeft">
+0
+</strong>
 днів
-</div>
 
 </div>
 
+</div>
 
-<!-- iPHONE AIR -->
+
+<!-- IPHONE -->
+
 <div class="phone">
 
 <svg
@@ -643,10 +767,11 @@ opacity=".14"/>
 
 
 <!-- PROGRESS -->
+
 <div class="progress-title">
 
 <span>
-Прогрес до дати
+Прогрес до дати покупки
 </span>
 
 <b id="progressText">
@@ -656,7 +781,12 @@ opacity=".14"/>
 </div>
 
 <div class="track">
-<div id="fill" class="fill"></div>
+
+<div
+id="fill"
+class="fill">
+</div>
+
 </div>
 
 <div class="scale">
@@ -666,28 +796,50 @@ opacity=".14"/>
 </span>
 
 <span>
-Ціль: 31.12.2026
+Базова дата: 31.12.2026
 </span>
 
 </div>
 
 
 <!-- STATS -->
+
 <div class="stats">
 
 <div class="stat">
-<b id="points">0</b>
-<small>БАЛИ</small>
+
+<b id="points">
+0
+</b>
+
+<small>
+ЧИСТІ БАЛИ
+</small>
+
 </div>
 
 <div class="stat">
-<b id="missions">0</b>
-<small>МІСІЇ</small>
+
+<b id="missions">
+0
+</b>
+
+<small>
+МІСІЇ
+</small>
+
 </div>
 
 <div class="stat">
-<b id="streak">1</b>
-<small>ДНІВ ПІДРЯД</small>
+
+<b id="streak">
+0
+</b>
+
+<small>
+ДНІВ ДО МЕТИ
+</small>
+
 </div>
 
 </div>
@@ -696,6 +848,7 @@ opacity=".14"/>
 
 
 <!-- RESULT -->
+
 <section class="card">
 
 <div class="section-title">
@@ -709,11 +862,13 @@ opacity=".14"/>
 <div
 class="big-number"
 id="result">
+
 0
+
 </div>
 
 <div class="result-label">
-цілих балів зароблено
+чистих балів
 </div>
 
 </div>
@@ -721,15 +876,26 @@ id="result">
 <div
 class="result-pill"
 id="resultStatus">
-Місія триває
+
+Без змін
+
 </div>
 
 </div>
+
+<p class="role-note">
+
+1 бал = −1 день<br>
+0,5 бала = −0,5 дня<br>
+1 штрафний бал = +1 день
+
+</p>
 
 </section>
 
 
-<!-- MISSIONS -->
+<!-- USER MISSIONS -->
+
 <section class="card">
 
 <div class="section-title">
@@ -737,22 +903,24 @@ id="resultStatus">
 </div>
 
 
+<!-- VACUUM -->
+
 <div class="mission">
 
 <div class="mission-main">
 
 <div class="icon">
-📚
+🧹
 </div>
 
 <div>
 
 <h3>
-Виконав завдання
+Пропилососити квартиру
 </h3>
 
 <p>
-+1 бал до результату
++1 бал · −1 день
 </p>
 
 </div>
@@ -761,29 +929,33 @@ id="resultStatus">
 
 <button
 class="plus"
-onclick="addPoints(1)">
+onclick="addBonus(1)">
+
 +1
+
 </button>
 
 </div>
 
 
+<!-- DUST -->
+
 <div class="mission">
 
 <div class="mission-main">
 
 <div class="icon">
-🏆
+🧽
 </div>
 
 <div>
 
 <h3>
-Велика місія
+Протерти пил по квартирі
 </h3>
 
 <p>
-+5 балів до результату
++0,5 бала · −0,5 дня
 </p>
 
 </div>
@@ -792,8 +964,80 @@ onclick="addPoints(1)">
 
 <button
 class="plus"
-onclick="addPoints(5)">
-+5
+onclick="addBonus(0.5)">
+
++0,5
+
+</button>
+
+</div>
+
+
+<!-- FOOD -->
+
+<div class="mission">
+
+<div class="mission-main">
+
+<div class="icon">
+🍳
+</div>
+
+<div>
+
+<h3>
+Приготувати їжу для всіх
+</h3>
+
+<p>
++1 бал · −1 день
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+onclick="addBonus(1)">
+
++1
+
+</button>
+
+</div>
+
+
+<!-- WEEKLY -->
+
+<div class="mission">
+
+<div class="mission-main">
+
+<div class="icon">
+🗂️
+</div>
+
+<div>
+
+<h3>
+Тижневий порядок
+</h3>
+
+<p>
++1 бал · дає тільки адмін
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+disabled>
+
+Адмін
+
 </button>
 
 </div>
@@ -801,34 +1045,181 @@ onclick="addPoints(5)">
 </section>
 
 
-<!-- CONTROL -->
-<section class="card">
+<!-- ADMIN PANEL -->
+
+<section
+id="adminPanel"
+class="card admin-panel hidden">
+
+<div class="admin-head">
 
 <div class="section-title">
-⚡ Керування
+🛠️ Адміністратор
 </div>
+
+<div class="admin-badge">
+ADMIN ONLY
+</div>
+
+</div>
+
+<p class="admin-note">
+
+Тільки адміністратор може видавати тижневий бал,
+штрафи та скасовувати дії.
+
+</p>
+
+
+<!-- WEEKLY ADMIN -->
+
+<div class="mission">
+
+<div class="mission-main">
+
+<div class="icon">
+⭐
+</div>
+
+<div>
+
+<h3>
+Дати тижневий бал
+</h3>
+
+<p>
++1 бал · −1 день · 1 раз на тиждень
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+onclick="giveWeekly()">
+
++1
+
+</button>
+
+</div>
+
+
+<!-- PENALTY -->
+
+<div class="mission penalty">
+
+<div class="mission-main">
+
+<div class="icon">
+⚠️
+</div>
+
+<div>
+
+<h3>
+Штраф
+</h3>
+
+<p>
++1 штрафний бал · +1 день
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+onclick="addPenalty(1)">
+
++1
+
+</button>
+
+</div>
+
+
+<!-- HALF PENALTY -->
+
+<div class="mission penalty">
+
+<div class="mission-main">
+
+<div class="icon">
+⚠️
+</div>
+
+<div>
+
+<h3>
+Пів штрафу
+</h3>
+
+<p>
++0,5 штрафу · +0,5 дня
+</p>
+
+</div>
+
+</div>
+
+<button
+class="plus"
+onclick="addPenalty(0.5)">
+
++0,5
+
+</button>
+
+</div>
+
+
+<!-- ADMIN ACTIONS -->
 
 <div class="actions">
 
 <button
 class="secondary"
-onclick="resetPoints()">
-Скинути результат
+onclick="undoLast()">
+
+↩️ Скасувати
+
 </button>
 
 <button
 class="secondary logout"
+onclick="resetAll()">
+
+🗑️ Скинути все
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- LOGOUT -->
+
+<section class="card">
+
+<div class="actions">
+
+<button
+class="secondary logout"
 onclick="logoutUser()">
+
 Вийти
+
 </button>
 
 </div>
 
 <p class="note">
 
-Результат зберігається на цьому пристрої автоматично.<br>
-
-Усі значення показуються цілими числами.
+Бали та штрафи зберігаються в цьому браузері.
 
 </p>
 
@@ -841,12 +1232,43 @@ onclick="logoutUser()">
 
 <script>
 
-const TARGET =
+const BASE_DATE =
 new Date("2026-12-31T00:00:00");
+
+const USER_LOGIN =
+"iphone";
+
+const USER_PASS =
+"1234";
+
+const ADMIN_LOGIN =
+"admin";
+
+const ADMIN_PASS =
+"admin123";
 
 
 function $(id){
-return document.getElementById(id);
+  return document.getElementById(id);
+}
+
+
+function num(key){
+
+  return Number(
+    localStorage.getItem(key) || 0
+  );
+
+}
+
+
+function save(key,value){
+
+  localStorage.setItem(
+    key,
+    String(value)
+  );
+
 }
 
 
@@ -854,99 +1276,332 @@ return document.getElementById(id);
 
 function loginUser(){
 
-const login =
-$("login").value.trim();
+  const login =
+    $("login").value.trim();
 
-const password =
-$("password").value;
+  const pass =
+    $("password").value;
 
-if(
-login === "iphone" &&
-password === "1234"
-){
 
-localStorage.setItem(
-"logged",
-"1"
-);
+  if(
+    login === USER_LOGIN &&
+    pass === USER_PASS
+  ){
 
-$("loginPage")
-.classList.add("hidden");
+    save("role","user");
 
-$("mainPage")
-.classList.remove("hidden");
+    openApp();
 
-render();
+    return;
+  }
 
-}else{
 
-$("error").textContent =
-"❌ Неправильний логін або пароль";
+  if(
+    login === ADMIN_LOGIN &&
+    pass === ADMIN_PASS
+  ){
+
+    save("role","admin");
+
+    openApp();
+
+    return;
+  }
+
+
+  $("error").textContent =
+    "❌ Невірний логін або пароль";
 
 }
 
+
+/* OPEN */
+
+function openApp(){
+
+  $("loginPage")
+    .classList
+    .add("hidden");
+
+  $("mainPage")
+    .classList
+    .remove("hidden");
+
+  render();
+
 }
 
 
-/* ADD POINTS */
+/* USER BONUS */
 
-function addPoints(n){
+function addBonus(value){
 
-let points =
-Math.floor(
-parseInt(
-localStorage.getItem("points") || "0",
-10
-)
-) + n;
-
-localStorage.setItem(
-"points",
-points
-);
+  save(
+    "earned",
+    num("earned") + value
+  );
 
 
-let missions =
-Math.floor(
-parseInt(
-localStorage.getItem("missions") || "0",
-10
-)
-) + 1;
+  save(
+    "missions",
+    Math.floor(
+      num("missions") + 1
+    )
+  );
 
-localStorage.setItem(
-"missions",
-missions
-);
 
-render();
+  save(
+    "lastAction",
+    JSON.stringify({
+      type:"bonus",
+      value:value
+    })
+  );
+
+
+  render();
+
+}
+
+
+/* ADMIN PENALTY */
+
+function addPenalty(value){
+
+  if(
+    localStorage.getItem("role")
+    !== "admin"
+  ){
+
+    return;
+  }
+
+
+  save(
+    "penalty",
+    num("penalty") + value
+  );
+
+
+  save(
+    "lastAction",
+    JSON.stringify({
+      type:"penalty",
+      value:value
+    })
+  );
+
+
+  render();
+
+}
+
+
+/* WEEKLY ADMIN BONUS */
+
+function giveWeekly(){
+
+  if(
+    localStorage.getItem("role")
+    !== "admin"
+  ){
+
+    return;
+  }
+
+
+  const now =
+    new Date();
+
+
+  const day =
+    now.getDay();
+
+
+  const diff =
+    day === 0
+      ? -6
+      : 1 - day;
+
+
+  const monday =
+    new Date(now);
+
+
+  monday.setDate(
+    now.getDate() + diff
+  );
+
+
+  monday.setHours(
+    0,0,0,0
+  );
+
+
+  const weekKey =
+    monday
+      .toISOString()
+      .slice(0,10);
+
+
+  if(
+    localStorage.getItem(
+      "weeklyWeek"
+    ) === weekKey
+  ){
+
+    alert(
+      "Тижневий бал уже виданий цього тижня."
+    );
+
+    return;
+  }
+
+
+  save(
+    "earned",
+    num("earned") + 1
+  );
+
+
+  save(
+    "missions",
+    Math.floor(
+      num("missions") + 1
+    )
+  );
+
+
+  save(
+    "weeklyWeek",
+    weekKey
+  );
+
+
+  save(
+    "lastAction",
+    JSON.stringify({
+      type:"weekly",
+      value:1
+    })
+  );
+
+
+  render();
+
+}
+
+
+/* UNDO */
+
+function undoLast(){
+
+  if(
+    localStorage.getItem("role")
+    !== "admin"
+  ){
+
+    return;
+  }
+
+
+  const action =
+    JSON.parse(
+      localStorage.getItem(
+        "lastAction"
+      ) || "null"
+    );
+
+
+  if(!action){
+
+    return;
+  }
+
+
+  if(
+    action.type === "bonus" ||
+    action.type === "weekly"
+  ){
+
+    save(
+      "earned",
+      num("earned") -
+      action.value
+    );
+
+
+    save(
+      "missions",
+      Math.max(
+        0,
+        num("missions") - 1
+      )
+    );
+
+  }
+
+
+  if(
+    action.type === "penalty"
+  ){
+
+    save(
+      "penalty",
+      Math.max(
+        0,
+        num("penalty") -
+        action.value
+      )
+    );
+
+  }
+
+
+  localStorage.removeItem(
+    "lastAction"
+  );
+
+
+  render();
 
 }
 
 
 /* RESET */
 
-function resetPoints(){
+function resetAll(){
 
-if(
-confirm(
-"Скинути результат до 0?"
-)
-){
+  if(
+    localStorage.getItem("role")
+    !== "admin"
+  ){
 
-localStorage.setItem(
-"points",
-"0"
-);
+    return;
+  }
 
-localStorage.setItem(
-"missions",
-"0"
-);
 
-render();
+  if(
+    confirm(
+      "Скинути всі бали, штрафи та місії?"
+    )
+  ){
 
-}
+    [
+      "earned",
+      "penalty",
+      "missions",
+      "weeklyWeek",
+      "lastAction"
+    ].forEach(
+      key =>
+        localStorage.removeItem(key)
+    );
+
+
+    render();
+
+  }
 
 }
 
@@ -955,18 +1610,27 @@ render();
 
 function logoutUser(){
 
-localStorage.removeItem(
-"logged"
-);
+  localStorage.removeItem(
+    "role"
+  );
 
-$("mainPage")
-.classList.add("hidden");
+  location.reload();
 
-$("loginPage")
-.classList.remove("hidden");
+}
 
-$("login").value="";
-$("password").value="";
+
+/* DATE */
+
+function formatDate(date){
+
+  return date.toLocaleDateString(
+    "uk-UA",
+    {
+      day:"2-digit",
+      month:"2-digit",
+      year:"numeric"
+    }
+  );
 
 }
 
@@ -975,93 +1639,206 @@ $("password").value="";
 
 function render(){
 
-let points =
-Math.floor(
-parseInt(
-localStorage.getItem("points") || "0",
-10
-)
-);
-
-let missions =
-Math.floor(
-parseInt(
-localStorage.getItem("missions") || "0",
-10
-)
-);
+  const role =
+    localStorage.getItem("role");
 
 
-let now =
-new Date();
+  if(!role){
 
-now.setHours(
-0,0,0,0
-);
+    return;
+  }
 
 
-let days =
-Math.max(
-0,
-Math.ceil(
-(TARGET - now) /
-86400000
-)
-);
+  const earned =
+    num("earned");
 
 
-let total =
-Math.ceil(
-(
-TARGET -
-new Date("2026-01-01T00:00:00")
-) /
-86400000
-);
+  const penalty =
+    num("penalty");
 
 
-let elapsed =
-Math.max(
-0,
-total - days
-);
+  const net =
+    earned - penalty;
 
 
-let percent =
-Math.min(
-100,
-Math.max(
-0,
-Math.round(
-elapsed / total * 100
-)
-)
-);
+  /*
+    Кожен чистий бал:
+    -1 день
+
+    Кожен штрафний бал:
+    +1 день
+  */
+
+  const purchaseDate =
+    new Date(
+      BASE_DATE.getTime() -
+      net * 86400000
+    );
 
 
-$("daysLeft").textContent =
-days;
-
-$("points").textContent =
-points;
-
-$("result").textContent =
-points;
-
-$("missions").textContent =
-missions;
-
-$("progressText").textContent =
-percent + "%";
-
-$("fill").style.width =
-percent + "%";
+  const today =
+    new Date();
 
 
-$("resultStatus").textContent =
-days === 0
-? "🎉 Час настав!"
-: "Місія триває";
+  today.setHours(
+    0,0,0,0
+  );
+
+
+  const daysLeft =
+    Math.max(
+      0,
+      Math.ceil(
+        (
+          purchaseDate -
+          today
+        ) / 86400000
+      )
+    );
+
+
+  const baseDays =
+    Math.max(
+      1,
+      Math.ceil(
+        (
+          BASE_DATE -
+          today
+        ) / 86400000
+      )
+    );
+
+
+  const daysSaved =
+    Math.max(
+      0,
+      Math.min(
+        baseDays,
+        Math.round(
+          net * 2
+        ) / 2
+      )
+    );
+
+
+  const progress =
+    Math.min(
+      100,
+      Math.max(
+        0,
+        daysSaved /
+        baseDays *
+        100
+      )
+    );
+
+
+  /* ROLE */
+
+  $("roleBadge").textContent =
+    role === "admin"
+      ? "● Адміністратор"
+      : "● Користувач";
+
+
+  $("adminPanel")
+    .classList
+    .toggle(
+      "hidden",
+      role !== "admin"
+    );
+
+
+  /* DATE */
+
+  $("purchaseDate")
+    .textContent =
+    formatDate(
+      purchaseDate
+    );
+
+
+  $("daysLeft")
+    .textContent =
+    daysLeft;
+
+
+  /* STATS */
+
+  $("points")
+    .textContent =
+    net.toLocaleString(
+      "uk-UA",
+      {
+        maximumFractionDigits:1
+      }
+    );
+
+
+  $("result")
+    .textContent =
+    net.toLocaleString(
+      "uk-UA",
+      {
+        maximumFractionDigits:1
+      }
+    );
+
+
+  $("missions")
+    .textContent =
+    Math.floor(
+      num("missions")
+    );
+
+
+  $("streak")
+    .textContent =
+    daysLeft;
+
+
+  /* PROGRESS */
+
+  $("progressText")
+    .textContent =
+    Math.round(
+      progress
+    ) + "%";
+
+
+  $("fill")
+    .style
+    .width =
+    progress + "%";
+
+
+  /* STATUS */
+
+  if(net > 0){
+
+    $("resultStatus")
+      .textContent =
+      "На " +
+      Math.abs(net) +
+      " дн. раніше";
+
+  }
+  else if(net < 0){
+
+    $("resultStatus")
+      .textContent =
+      "На " +
+      Math.abs(net) +
+      " дн. пізніше";
+
+  }
+  else{
+
+    $("resultStatus")
+      .textContent =
+      "Без змін";
+
+  }
 
 }
 
@@ -1070,31 +1847,30 @@ days === 0
 
 $("password")
 .addEventListener(
-"keydown",
-function(e){
+  "keydown",
+  function(e){
 
-if(e.key === "Enter"){
-loginUser();
-}
+    if(
+      e.key === "Enter"
+    ){
 
-});
+      loginUser();
+
+    }
+
+  }
+);
 
 
 /* AUTO LOGIN */
 
 if(
-localStorage.getItem("logged") === "1"
+  localStorage.getItem("role")
 ){
 
-$("loginPage")
-.classList.add("hidden");
-
-$("mainPage")
-.classList.remove("hidden");
+  openApp();
 
 }
-
-render();
 
 </script>
 
