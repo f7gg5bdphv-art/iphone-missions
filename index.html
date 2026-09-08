@@ -2,1267 +2,882 @@
 <html lang="uk">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#050505">
 <title>iPhone Mission</title>
 
 <style>
 *{
   box-sizing:border-box;
-  margin:0;
-  padding:0;
+  -webkit-tap-highlight-color:transparent;
 }
 
-:root{
-  --bg:#07080b;
-  --card:#111318;
-  --card2:#0c0e12;
-  --text:#f5f5f7;
-  --muted:#8e919a;
-  --blue:#4da3ff;
-  --green:#39d98a;
-  --red:#ff5c62;
-  --gold:#ffd76a;
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100%;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 50% -10%,rgba(70,70,80,.45),transparent 38%),
+    #050505;
+  color:#fff;
 }
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",sans-serif;
-  background:
-    radial-gradient(circle at 50% -10%,#26344a 0,#0d1016 35%,#07080b 70%);
-  min-height:100vh;
-  color:var(--text);
-  padding:20px 14px 35px;
+  padding:20px 14px 40px;
 }
 
-button,input{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
-
-.app{
+.container{
   width:100%;
   max-width:520px;
-  margin:auto;
+  margin:0 auto;
+}
+
+.card{
+  background:rgba(25,25,28,.82);
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:26px;
+  padding:20px;
+  margin-bottom:16px;
+  box-shadow:
+    0 15px 45px rgba(0,0,0,.35),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  backdrop-filter:blur(20px);
 }
 
 .hidden{
   display:none!important;
 }
 
-/* LOGIN */
-
-.login-wrap{
-  min-height:calc(100vh - 55px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.login-card{
-  width:100%;
-  background:rgba(17,19,24,.92);
-  border:1px solid #292d36;
-  border-radius:30px;
-  padding:30px 22px;
-  box-shadow:0 30px 80px rgba(0,0,0,.55);
-  backdrop-filter:blur(18px);
-  text-align:center;
-}
-
 .logo{
-  width:82px;
-  height:82px;
-  margin:0 auto 18px;
-  border-radius:25px;
-  background:linear-gradient(145deg,#252b35,#0d0f13);
-  border:1px solid #3b414c;
-  display:grid;
-  place-items:center;
-  font-size:42px;
-  box-shadow:0 18px 40px rgba(0,0,0,.4);
-}
-
-.eyebrow{
-  color:#9da5b3;
-  font-size:11px;
-  font-weight:800;
-  letter-spacing:2.5px;
-  text-transform:uppercase;
-}
-
-h1{
+  text-align:center;
   font-size:36px;
-  letter-spacing:-1.5px;
-  margin:8px 0;
+  font-weight:800;
+  letter-spacing:-2px;
+  margin:10px 0 4px;
 }
 
-.sub{
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.45;
+.subtitle{
+  text-align:center;
+  color:#8e8e93;
+  margin-bottom:25px;
 }
 
-.field{
-  text-align:left;
-  margin-top:18px;
-}
-
-.field label{
-  display:block;
-  color:#aeb2bb;
-  font-size:13px;
-  margin:0 0 7px 4px;
-}
-
-.field input{
+input{
   width:100%;
-  height:54px;
-  border:1px solid #30343d;
-  border-radius:16px;
-  background:#0b0d11;
-  color:white;
-  padding:0 16px;
+  padding:15px 16px;
+  margin-bottom:12px;
+  border-radius:15px;
+  border:1px solid rgba(255,255,255,.1);
+  background:#161619;
+  color:#fff;
+  font-size:16px;
   outline:none;
 }
 
-.field input:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 0 3px rgba(77,163,255,.15);
+input:focus{
+  border-color:#777;
+}
+
+button{
+  border:0;
+  cursor:pointer;
+  font-family:inherit;
+  transition:.18s ease;
+}
+
+button:active{
+  transform:scale(.96);
 }
 
 .login-btn{
   width:100%;
-  height:54px;
-  margin-top:15px;
-  border:0;
-  border-radius:16px;
-  background:linear-gradient(135deg,#5db0ff,#267ff0);
-  color:white;
-  font-weight:800;
-  font-size:16px;
-  box-shadow:0 12px 28px rgba(38,127,240,.25);
+  padding:15px;
+  border-radius:15px;
+  background:#fff;
+  color:#000;
+  font-size:17px;
+  font-weight:700;
 }
 
 .error{
-  min-height:20px;
-  color:var(--red);
-  font-size:13px;
-  margin-top:12px;
-}
-
-/* TOP */
-
-.top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:4px 3px 18px;
-}
-
-.brand{
-  font-weight:900;
-  font-size:19px;
-}
-
-.brand span{
-  color:#8e929b;
-  font-weight:600;
-}
-
-.badge{
-  font-size:12px;
-  font-weight:800;
-  padding:8px 11px;
-  border:1px solid #30343d;
-  border-radius:999px;
-  background:#12151a;
-  color:#b9bec8;
-}
-
-/* CARD */
-
-.card{
-  background:rgba(17,19,24,.92);
-  border:1px solid #282c35;
-  border-radius:26px;
-  padding:20px;
-  margin-bottom:13px;
-  box-shadow:0 18px 50px rgba(0,0,0,.25);
-  overflow:hidden;
-}
-
-/* HERO */
-
-.hero{
-  background:linear-gradient(145deg,#171b23,#0f1116);
-}
-
-.hero-grid{
-  display:grid;
-  grid-template-columns:1fr 135px;
-  gap:5px;
-  align-items:center;
-}
-
-.kicker{
-  font-size:11px;
-  letter-spacing:1.8px;
-  color:#8e96a3;
-  font-weight:900;
-}
-
-.hero h2{
-  font-size:31px;
-  line-height:1.03;
-  letter-spacing:-1.2px;
-  margin:7px 0;
-}
-
-.hero-date{
-  font-size:27px;
-  font-weight:900;
-  letter-spacing:-1px;
-  margin-top:5px;
-}
-
-.count{
-  font-size:13px;
-  color:#b4bac5;
-  margin-top:7px;
-}
-
-.count strong{
-  color:white;
-}
-
-/* PHONE */
-
-.phone{
-  width:125px;
-  height:220px;
-  margin-left:auto;
-  filter:drop-shadow(0 18px 22px rgba(0,0,0,.6));
-}
-
-.phone svg{
-  width:100%;
-  height:100%;
-}
-
-/* PROGRESS */
-
-.progress-title{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  margin-top:22px;
-  font-size:12px;
-  color:#9aa0aa;
-}
-
-.progress-title b{
-  color:#e9ebef;
-  font-size:13px;
-}
-
-.track{
-  height:12px;
-  border-radius:99px;
-  background:#292d35;
-  margin-top:8px;
-  overflow:hidden;
-  border:1px solid #323640;
-}
-
-.fill{
-  height:100%;
-  width:0%;
-  border-radius:99px;
-  background:linear-gradient(90deg,#3d8cff,#5be2ad);
-  transition:width .35s ease;
-}
-
-.scale{
-  display:flex;
-  justify-content:space-between;
-  color:#676d77;
-  font-size:10px;
-  margin-top:6px;
-}
-
-/* STATS */
-
-.stats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:9px;
-  margin-top:14px;
-}
-
-.stat{
-  background:#0c0e12;
-  border:1px solid #282c34;
-  border-radius:17px;
-  padding:13px 8px;
+  color:#ff453a;
   text-align:center;
+  min-height:22px;
+  margin-top:10px;
 }
 
-.stat b{
-  display:block;
-  font-size:24px;
-}
-
-.stat small{
-  display:block;
-  color:#858b96;
-  font-size:10px;
-  margin-top:4px;
-}
-
-/* MISSIONS */
-
-.section-title{
-  font-size:19px;
-  font-weight:850;
-  margin-bottom:13px;
-}
-
-.mission{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:14px;
-  background:var(--card2);
-  border:1px solid #282c34;
-  border-radius:17px;
-  margin-top:9px;
-}
-
-.mission-main{
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.icon{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  background:#191d24;
-  display:grid;
-  place-items:center;
-  font-size:21px;
-  flex-shrink:0;
-}
-
-.mission h3{
-  font-size:14px;
-}
-
-.mission p{
-  font-size:11px;
-  color:#777d87;
-  margin-top:3px;
-}
-
-.plus{
-  width:54px;
-  height:39px;
-  border-radius:12px;
-  border:1px solid #315d4a;
-  background:#10261d;
-  color:var(--green);
-  font-weight:900;
-  flex-shrink:0;
-}
-
-.plus:disabled{
-  opacity:.35;
-}
-
-/* RESULT */
-
-.result{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.big-number{
-  font-size:48px;
-  font-weight:950;
-  letter-spacing:-2px;
-}
-
-.result-label{
-  color:#8e949e;
-  font-size:12px;
-}
-
-.result-pill{
-  padding:10px 12px;
-  border-radius:13px;
-  background:#10261d;
-  border:1px solid #244d3a;
-  color:#67e3a5;
-  font-size:12px;
-  font-weight:800;
-}
-
-/* ADMIN */
-
-.admin-panel{
-  border-color:#514625;
-  background:linear-gradient(145deg,#18170f,#111318);
-}
-
-.admin-head{
+.header{
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:10px;
 }
 
-.admin-badge{
-  font-size:10px;
-  color:var(--gold);
-  border:1px solid #5b4c23;
-  background:#27200c;
-  border-radius:99px;
-  padding:6px 8px;
-  font-weight:800;
+.header h2{
+  margin:0;
+  font-size:24px;
+  letter-spacing:-.6px;
 }
 
-.admin-note{
-  font-size:11px;
-  color:#8d949f;
-  margin:5px 0 10px;
-}
-
-.penalty .plus{
-  border-color:#612f34;
-  background:#211013;
-  color:#ff7c82;
-}
-
-.admin-action{
-  width:100%;
-  min-height:48px;
-  margin-top:9px;
-  border-radius:14px;
-  border:1px solid #514625;
-  background:#211d0e;
-  color:#ffd76a;
-  font-weight:800;
-}
-
-.actions{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:9px;
-  margin-top:10px;
-}
-
-.secondary{
-  min-height:46px;
-  border-radius:14px;
-  border:1px solid #30343d;
-  background:#15181e;
-  color:#dfe2e7;
-  font-weight:700;
-}
-
-.logout{
-  border-color:#51272b;
-  color:#ff858a;
-  background:#1b1012;
-}
-
-.note{
-  color:#737984;
-  font-size:11px;
-  text-align:center;
-  line-height:1.5;
-  margin-top:14px;
+.role{
+  font-size:12px;
+  color:#8e8e93;
+  margin-top:5px;
 }
 
 .status{
   text-align:center;
-  font-size:11px;
-  color:#6e7480;
+  color:#30d158;
+  font-size:13px;
+  margin-top:10px;
+}
+
+.date-box{
+  text-align:center;
+  padding:20px 10px;
+}
+
+.date-label{
+  color:#8e8e93;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+.date{
+  font-size:42px;
+  line-height:1;
+  font-weight:800;
+  letter-spacing:-2px;
+}
+
+.date-small{
+  color:#8e8e93;
   margin-top:8px;
 }
 
-@media(max-width:390px){
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:10px;
+}
 
-  .hero-grid{
-    grid-template-columns:1fr 110px;
-  }
+.stat{
+  background:#151518;
+  border-radius:18px;
+  padding:15px 8px;
+  text-align:center;
+}
 
-  .phone{
-    width:105px;
-    height:185px;
-  }
+.stat-value{
+  font-size:24px;
+  font-weight:800;
+}
 
-  .hero h2{
-    font-size:27px;
-  }
+.stat-label{
+  font-size:11px;
+  color:#8e8e93;
+  margin-top:4px;
+}
 
-  .hero-date{
-    font-size:23px;
-  }
+.progress-wrap{
+  margin-top:18px;
+}
 
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  color:#8e8e93;
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+.progress{
+  width:100%;
+  height:10px;
+  background:#242428;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  border-radius:20px;
+  background:linear-gradient(90deg,#fff,#a8a8ad);
+  transition:width .3s ease;
+}
+
+.section-title{
+  font-size:20px;
+  font-weight:800;
+  margin:4px 0 14px;
+}
+
+.mission{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+
+.mission:last-child{
+  border-bottom:0;
+}
+
+.mission h3{
+  margin:0 0 5px;
+  font-size:16px;
+}
+
+.mission p{
+  margin:0;
+  color:#8e8e93;
+  font-size:13px;
+}
+
+.plus{
+  flex:0 0 auto;
+  min-width:68px;
+  padding:12px 14px;
+  border-radius:13px;
+  background:#fff;
+  color:#000;
+  font-weight:800;
+  font-size:15px;
+}
+
+.plus:disabled{
+  opacity:.3;
+  cursor:not-allowed;
+}
+
+.penalty .plus{
+  background:#ff453a;
+  color:#fff;
+}
+
+.secondary{
+  width:100%;
+  padding:14px;
+  border-radius:14px;
+  background:#242428;
+  color:#fff;
+  font-size:15px;
+  font-weight:700;
+  margin-top:10px;
+}
+
+.logout{
+  background:#1c1c1f;
+  color:#ff453a;
+}
+
+.history{
+  max-height:300px;
+  overflow:auto;
+}
+
+.history-item{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:11px 0;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:13px;
+}
+
+.history-item:last-child{
+  border-bottom:0;
+}
+
+.history-left{
+  color:#d1d1d6;
+}
+
+.history-right{
+  font-weight:700;
+}
+
+.bonus-text{
+  color:#30d158;
+}
+
+.penalty-text{
+  color:#ff453a;
+}
+
+.phone-wrap{
+  display:flex;
+  justify-content:center;
+  padding:10px 0 4px;
+}
+
+.phone{
+  position:relative;
+  width:185px;
+  height:360px;
+  border-radius:36px;
+  padding:7px;
+  background:linear-gradient(145deg,#57575b,#161618 45%,#707075);
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.55),
+    inset 0 0 0 2px #777;
+}
+
+.phone-screen{
+  width:100%;
+  height:100%;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  background:
+    radial-gradient(circle at 50% 35%,#33333b,transparent 25%),
+    linear-gradient(160deg,#15151a,#030303);
+}
+
+.dynamic-island{
+  position:absolute;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  width:70px;
+  height:20px;
+  border-radius:20px;
+  background:#000;
+  z-index:3;
+}
+
+.phone-content{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.phone-content .small{
+  color:#8e8e93;
+  font-size:11px;
+}
+
+.phone-content strong{
+  font-size:27px;
+  margin:7px 0;
+}
+
+.phone-icon{
+  width:75px;
+  height:75px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#25252a,#08080a);
+  border:1px solid rgba(255,255,255,.13);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:37px;
+  margin-bottom:15px;
+}
+
+.result{
+  text-align:center;
+  font-size:13px;
+  color:#8e8e93;
+  margin-top:10px;
+}
+
+.admin-title{
+  color:#ff9f0a;
+}
+
+.empty{
+  text-align:center;
+  color:#666;
+  padding:15px 0;
+}
+
+.footer{
+  text-align:center;
+  color:#555;
+  font-size:11px;
+  margin-top:20px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="app">
+<div class="container">
 
-<!-- LOGIN -->
+  <!-- LOGIN -->
+  <div id="loginScreen" class="card">
+    <div class="logo">iPhone Mission</div>
+    <div class="subtitle">Зароби свій iPhone</div>
 
-<div id="loginPage" class="login-wrap">
+    <input
+      id="login"
+      type="text"
+      placeholder="Логін"
+      autocomplete="username"
+    >
 
-  <div class="login-card">
-
-    <div class="logo">📱</div>
-
-    <div class="eyebrow">Personal Challenge</div>
-
-    <h1>iPhone Mission</h1>
-
-    <p class="sub">
-      Твоя ціль. Твій прогрес.<br>
-      Кожен день наближає до iPhone.
-    </p>
-
-    <div class="field">
-      <label>Логін</label>
-      <input
-        id="login"
-        autocomplete="username"
-        placeholder="Введи логін"
-      >
-    </div>
-
-    <div class="field">
-      <label>Пароль</label>
-      <input
-        id="password"
-        type="password"
-        autocomplete="current-password"
-        placeholder="Введи пароль"
-      >
-    </div>
+    <input
+      id="password"
+      type="password"
+      placeholder="Пароль"
+      autocomplete="current-password"
+    >
 
     <button class="login-btn" onclick="loginUser()">
-      Увійти →
+      Увійти
     </button>
 
-    <div id="error" class="error"></div>
-
-  </div>
-
-</div>
-
-
-<!-- MAIN -->
-
-<main id="mainPage" class="hidden">
-
-  <div class="top">
-
-    <div class="brand">
-      iPhone <span>MISSION</span>
-    </div>
-
-    <div class="badge" id="roleBadge">
-      ● Користувач
-    </div>
-
+    <div id="loginError" class="error"></div>
   </div>
 
 
-  <!-- HERO -->
+  <!-- APP -->
+  <div id="app" class="hidden">
 
-  <section class="card hero">
+    <div class="card">
 
-    <div class="hero-grid">
-
-      <div>
-
-        <div class="kicker">ТВОЯ ЦІЛЬ</div>
-
-        <h2>iPhone Air</h2>
-
-        <div class="hero-date" id="purchaseDate">
-          31.12.2026
+      <div class="header">
+        <div>
+          <h2>iPhone Mission</h2>
+          <div id="roleText" class="role"></div>
         </div>
+      </div>
 
-        <div class="count">
-          До покупки залишилось
-          <strong id="daysLeft">0</strong>
-          днів
+      <div id="firebaseStatus" class="status">
+        ● Підключення до бази...
+      </div>
+
+    </div>
+
+
+    <!-- DATE -->
+    <div class="card date-box">
+
+      <div class="date-label">
+        Твоя розрахункова дата покупки
+      </div>
+
+      <div id="purchaseDate" class="date">
+        31.12.2026
+      </div>
+
+      <div id="daysInfo" class="date-small">
+        Залишилось 0 днів
+      </div>
+
+      <div id="resultText" class="result"></div>
+
+    </div>
+
+
+    <!-- PHONE -->
+    <div class="card">
+
+      <div class="section-title">
+        Твій iPhone
+      </div>
+
+      <div class="phone-wrap">
+
+        <div class="phone">
+
+          <div class="phone-screen">
+
+            <div class="dynamic-island"></div>
+
+            <div class="phone-content">
+
+              <div class="phone-icon">
+                
+              </div>
+
+              <div class="small">
+                iPhone Air
+              </div>
+
+              <strong>MISSION</strong>
+
+              <div class="small">
+                Твоя ціль ближче
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
 
+    </div>
 
-      <div class="phone">
 
-        <svg
-          viewBox="0 0 150 260"
-          xmlns="http://www.w3.org/2000/svg"
+    <!-- STATS -->
+    <div class="card">
+
+      <div class="stats">
+
+        <div class="stat">
+          <div id="earned" class="stat-value">0</div>
+          <div class="stat-label">БОНУСИ</div>
+        </div>
+
+        <div class="stat">
+          <div id="penalty" class="stat-value">0</div>
+          <div class="stat-label">ШТРАФИ</div>
+        </div>
+
+        <div class="stat">
+          <div id="netPoints" class="stat-value">0</div>
+          <div class="stat-label">РАЗОМ</div>
+        </div>
+
+      </div>
+
+      <div class="progress-wrap">
+
+        <div class="progress-top">
+          <span>Прогрес місії</span>
+          <span id="progressPercent">0%</span>
+        </div>
+
+        <div class="progress">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- USER MISSIONS -->
+    <div id="userPanel" class="card hidden">
+
+      <div class="section-title">
+        Мої місії
+      </div>
+
+      <div class="mission">
+
+        <div>
+          <h3>Пилососення квартири</h3>
+          <p>+1 бал • щодня</p>
+        </div>
+
+        <button
+          class="plus"
+          onclick="addBonus(1)"
         >
-
-          <defs>
-
-            <linearGradient
-              id="frame"
-              x1="0"
-              y1="0"
-              x2="1"
-              y2="1"
-            >
-              <stop stop-color="#e5e8ed"/>
-              <stop
-                offset=".45"
-                stop-color="#8c95a2"
-              />
-              <stop
-                offset="1"
-                stop-color="#f2f4f7"
-              />
-            </linearGradient>
-
-            <linearGradient
-              id="screen"
-              x1="0"
-              y1="0"
-              x2="1"
-              y2="1"
-            >
-              <stop
-                stop-color="#253247"
-              />
-              <stop
-                offset=".55"
-                stop-color="#0d121b"
-              />
-              <stop
-                offset="1"
-                stop-color="#1c4c72"
-              />
-            </linearGradient>
-
-          </defs>
-
-          <rect
-            x="17"
-            y="3"
-            width="116"
-            height="254"
-            rx="28"
-            fill="url(#frame)"
-          />
-
-          <rect
-            x="21"
-            y="7"
-            width="108"
-            height="246"
-            rx="25"
-            fill="#090b0f"
-          />
-
-          <rect
-            x="25"
-            y="11"
-            width="100"
-            height="238"
-            rx="22"
-            fill="url(#screen)"
-          />
-
-          <circle
-            cx="75"
-            cy="20"
-            r="5.5"
-            fill="#030407"
-          />
-
-          <rect
-            x="61"
-            y="16"
-            width="28"
-            height="8"
-            rx="4"
-            fill="#030407"
-          />
-
-          <circle
-            cx="75"
-            cy="132"
-            r="39"
-            fill="none"
-            stroke="#ffffff"
-            stroke-opacity=".08"
-            stroke-width="2"
-          />
-
-          <text
-            x="75"
-            y="127"
-            text-anchor="middle"
-            fill="white"
-            font-size="15"
-            font-weight="700"
-          >
-            iPhone
-          </text>
-
-          <text
-            x="75"
-            y="146"
-            text-anchor="middle"
-            fill="#9ecfff"
-            font-size="9"
-          >
-            MISSION
-          </text>
-
-        </svg>
-
-      </div>
-
-    </div>
-
-
-    <div class="progress-title">
-
-      <span>Прогрес</span>
-
-      <b id="progressText">
-        0%
-      </b>
-
-    </div>
-
-    <div class="track">
-
-      <div
-        class="fill"
-        id="progressFill"
-      ></div>
-
-    </div>
-
-    <div class="scale">
-
-      <span>31.12</span>
-
-      <span>ЦІЛЬ</span>
-
-      <span>Сьогодні</span>
-
-    </div>
-
-
-    <div class="stats">
-
-      <div class="stat">
-
-        <b id="earnedStat">
-          0
-        </b>
-
-        <small>
-          ЗАРОБЛЕНО
-        </small>
+          +1
+        </button>
 
       </div>
 
 
-      <div class="stat">
-
-        <b id="penaltyStat">
-          0
-        </b>
-
-        <small>
-          ШТРАФИ
-        </small>
-
-      </div>
-
-
-      <div class="stat">
-
-        <b id="netStat">
-          0
-        </b>
-
-        <small>
-          РЕЗУЛЬТАТ
-        </small>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- MISSIONS -->
-
-  <section class="card">
-
-    <div class="section-title">
-      Мої завдання
-    </div>
-
-
-    <div class="mission">
-
-      <div class="mission-main">
-
-        <div class="icon">
-          🧹
-        </div>
+      <div class="mission">
 
         <div>
-
-          <h3>
-            Пропилососити квартиру
-          </h3>
-
-          <p>
-            Нагорода: +1 день
-          </p>
-
+          <h3>Витерти пил у квартирі</h3>
+          <p>+0.5 бала • щодня</p>
         </div>
 
-      </div>
-
-      <button
-        class="plus"
-        onclick="addBonus(1)"
-      >
-        +1
-      </button>
-
-    </div>
-
-
-    <div class="mission">
-
-      <div class="mission-main">
-
-        <div class="icon">
-          ✨
-        </div>
-
-        <div>
-
-          <h3>
-            Витерти пил по всій квартирі
-          </h3>
-
-          <p>
-            Нагорода: +0.5 дня
-          </p>
-
-        </div>
-
-      </div>
-
-      <button
-        class="plus"
-        onclick="addBonus(0.5)"
-      >
-        +0.5
-      </button>
-
-    </div>
-
-
-    <div class="mission">
-
-      <div class="mission-main">
-
-        <div class="icon">
-          🍳
-        </div>
-
-        <div>
-
-          <h3>
-            Приготувати їжу для всіх
-          </h3>
-
-          <p>
-            Нагорода: +1 день
-          </p>
-
-        </div>
-
-      </div>
-
-      <button
-        class="plus"
-        onclick="addBonus(1)"
-      >
-        +1
-      </button>
-
-    </div>
-
-
-    <div
-      class="mission"
-      id="weeklyMission"
-    >
-
-      <div class="mission-main">
-
-        <div class="icon">
-          📦
-        </div>
-
-        <div>
-
-          <h3>
-            Щотижневе замовлення на роботі
-          </h3>
-
-          <p>
-            +1 день • видає адміністратор
-          </p>
-
-        </div>
-
-      </div>
-
-      <button
-        class="plus"
-        id="userWeeklyBtn"
-        disabled
-      >
-        +1
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- RESULT -->
-
-  <section class="card">
-
-    <div class="section-title">
-      Результат
-    </div>
-
-    <div class="result">
-
-      <div>
-
-        <div
-          class="big-number"
-          id="netResult"
+        <button
+          class="plus"
+          onclick="addBonus(0.5)"
         >
-          0
+          +0.5
+        </button>
+
+      </div>
+
+
+      <div class="mission">
+
+        <div>
+          <h3>Приготувати їжу для всіх</h3>
+          <p>+1 бал • щодня</p>
         </div>
 
-        <div class="result-label">
-          чистих бонусних днів
+        <button
+          class="plus"
+          onclick="addBonus(1)"
+        >
+          +1
+        </button>
+
+      </div>
+
+
+      <div class="mission">
+
+        <div>
+          <h3>Бонус тижня</h3>
+          <p>+1 бал • видає адміністратор</p>
         </div>
 
+        <button
+          class="plus"
+          id="userWeeklyBtn"
+          disabled
+        >
+          +1
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- ADMIN -->
+    <div id="adminPanel" class="hidden">
+
+      <div class="card">
+
+        <div class="section-title admin-title">
+          Панель адміністратора
+        </div>
+
+
+        <div class="mission">
+
+          <div>
+            <h3>Пилососення квартири</h3>
+            <p>+1 бал</p>
+          </div>
+
+          <button
+            class="plus"
+            onclick="addBonus(1)"
+          >
+            +1
+          </button>
+
+        </div>
+
+
+        <div class="mission">
+
+          <div>
+            <h3>Витерти пил у квартирі</h3>
+            <p>+0.5 бала</p>
+          </div>
+
+          <button
+            class="plus"
+            onclick="addBonus(0.5)"
+          >
+            +0.5
+          </button>
+
+        </div>
+
+
+        <div class="mission">
+
+          <div>
+            <h3>Приготувати їжу для всіх</h3>
+            <p>+1 бал</p>
+          </div>
+
+          <button
+            class="plus"
+            onclick="addBonus(1)"
+          >
+            +1
+          </button>
+
+        </div>
+
+
+        <div class="mission">
+
+          <div>
+            <h3>Бонус тижня</h3>
+            <p id="weeklyStatus">+1 бал</p>
+          </div>
+
+          <button
+            id="weeklyBtn"
+            class="plus"
+            onclick="giveWeekly()"
+          >
+            +1
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- PENALTIES -->
+      <div class="card">
+
+        <div class="section-title">
+          Штрафи
+        </div>
+
+
+        <div class="mission penalty">
+
+          <div>
+            <h3>Штраф</h3>
+            <p>+1 день до дати покупки</p>
+          </div>
+
+          <button
+            class="plus"
+            onclick="addPenalty(1)"
+          >
+            +1
+          </button>
+
+        </div>
+
+
+        <div class="mission penalty">
+
+          <div>
+            <h3>Малий штраф</h3>
+            <p>+0.5 дня до дати покупки</p>
+          </div>
+
+          <button
+            class="plus"
+            onclick="addPenalty(0.5)"
+          >
+            +0.5
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ADMIN ACTIONS -->
+      <div class="card">
+
+        <div class="section-title">
+          Керування
+        </div>
+
+        <button
+          class="secondary"
+          onclick="undoLast()"
+        >
+          ↩ Скасувати останню дію
+        </button>
+
+        <button
+          class="secondary"
+          onclick="resetAll()"
+        >
+          ♻️ Скинути все
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <!-- HISTORY -->
+    <div class="card">
+
+      <div class="section-title">
+        Історія
       </div>
 
       <div
-        class="result-pill"
-        id="resultLabel"
+        id="history"
+        class="history"
       >
-        Початок місії
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- ADMIN -->
-
-  <section
-    id="adminPanel"
-    class="card admin-panel hidden"
-  >
-
-    <div class="admin-head">
-
-      <div
-        class="section-title"
-        style="margin:0"
-      >
-        Панель адміністратора
-      </div>
-
-      <div class="admin-badge">
-        ADMIN
-      </div>
-
-    </div>
-
-    <div class="admin-note">
-      Адміністратор має повний доступ до місії.
-    </div>
-
-
-    <!-- WEEKLY -->
-
-    <div class="mission">
-
-      <div class="mission-main">
-
-        <div class="icon">
-          📅
+        <div class="empty">
+          Дій ще немає
         </div>
-
-        <div>
-
-          <h3>
-            Щотижневе замовлення
-          </h3>
-
-          <p id="weeklyStatus">
-            +1 день
-          </p>
-
-        </div>
-
       </div>
+
+    </div>
+
+
+    <!-- LOGOUT -->
+    <div class="card">
 
       <button
-        class="plus"
-        id="weeklyBtn"
-        onclick="giveWeekly()"
+        class="secondary logout"
+        onclick="logout()"
       >
-        +1
+        Вийти з акаунта
       </button>
 
     </div>
 
-
-    <!-- PENALTY +1 -->
-
-    <div class="mission penalty">
-
-      <div class="mission-main">
-
-        <div class="icon">
-          ⚠️
-        </div>
-
-        <div>
-
-          <h3>
-            Штраф
-          </h3>
-
-          <p>
-            +1 день до покупки
-          </p>
-
-        </div>
-
-      </div>
-
-      <button
-        class="plus"
-        onclick="addPenalty(1)"
-      >
-        +1
-      </button>
-
-    </div>
+  </div>
 
 
-    <!-- PENALTY +0.5 -->
-
-    <div class="mission penalty">
-
-      <div class="mission-main">
-
-        <div class="icon">
-          ⚠️
-        </div>
-
-        <div>
-
-          <h3>
-            Половина штрафу
-          </h3>
-
-          <p>
-            +0.5 дня до покупки
-          </p>
-
-        </div>
-
-      </div>
-
-      <button
-        class="plus"
-        onclick="addPenalty(0.5)"
-      >
-        +0.5
-      </button>
-
-    </div>
-
-
-    <div class="actions">
-
-      <button
-        class="secondary"
-        onclick="undoLast()"
-      >
-        ↩ Скасувати останню
-      </button>
-
-      <button
-        class="secondary"
-        onclick="resetAll()"
-      >
-        ♻️ Скинути все
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- LOGOUT -->
-
-  <section class="card">
-
-    <button
-      class="secondary logout"
-      style="width:100%"
-      onclick="logout()"
-    >
-      Вийти з акаунта
-    </button>
-
-    <div class="note">
-
-      Дані синхронізуються через Firebase.<br>
-
-      Зміни на одному телефоні
-      з'являються на іншому автоматично.
-
-    </div>
-
-    <div
-      class="status"
-      id="firebaseStatus"
-    >
-      Підключення до бази...
-    </div>
-
-  </section>
-
-</main>
+  <div class="footer">
+    iPhone Mission • 2026
+  </div>
 
 </div>
 
 
 <script type="module">
 
-import { initializeApp }
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+import {
+  initializeApp
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 import {
   getDatabase,
   ref,
-  onValue,
-  set
-}
-from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
+  set,
+  onValue
+} from "https://www.gstatic.com/firebasejs/12.18.0/firebase-database.js";
 
 
-/* FIREBASE */
+/* =========================================
+   FIREBASE
+========================================= */
 
 const firebaseConfig = {
-
-  apiKey:
-    "AIzaSyAzLTYys_Nhg0Sm1XWbAU3CCfRAsAfzlbI",
-
-  authDomain:
-    "iphone-mission.firebaseapp.com",
-
-  databaseURL:
-    "https://iphone-mission-default-rtdb.europe-west1.firebasedatabase.app",
-
-  projectId:
-    "iphone-mission",
-
-  storageBucket:
-    "iphone-mission.firebasestorage.app",
-
-  messagingSenderId:
-    "670018031139",
-
-  appId:
-    "1:670018031139:web:5d9d5e0ec4b1f746baeb96",
-
-  measurementId:
-    "G-5FJ97J55CL"
-
+  apiKey: "AIzaSyAzLTYys_Nhg0Sm1XWbAU3CCfRAsAfzlbI",
+  authDomain: "iphone-mission.firebaseapp.com",
+  databaseURL: "https://iphone-mission-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "iphone-mission",
+  storageBucket: "iphone-mission.firebasestorage.app",
+  messagingSenderId: "670018031139",
+  appId: "1:670018031139:web:5d9d5e0ec4b1f746baeb96",
+  measurementId: "G-5FJ97J55CL"
 };
 
+const app = initializeApp(firebaseConfig);
 
-const app =
-  initializeApp(firebaseConfig);
+const database = getDatabase(app);
 
-const db =
-  getDatabase(app);
-
-const dataRef =
-  ref(db,"mission");
+const dataRef = ref(database,"mission");
 
 
-/* CONSTANTS */
+/* =========================================
+   CONSTANTS
+========================================= */
 
 const BASE_DATE =
   new Date("2026-12-31T00:00:00");
 
-
-const USERS = {
-
-  iphone:{
-    password:"1234",
-    role:"user"
-  },
-
-  admin:{
-    password:"admin123",
-    role:"admin"
-  }
-
-};
+const TOTAL_DAYS = 365;
 
 
-/* STATE */
-
-let currentRole = null;
+/* =========================================
+   STATE
+========================================= */
 
 let state = {
 
@@ -1276,10 +891,93 @@ let state = {
 
 };
 
+let currentRole = null;
 
-/* LOGIN */
 
-window.loginUser = function(){
+/* =========================================
+   HELPERS
+========================================= */
+
+function getWeekKey(){
+
+  const now = new Date();
+
+  const firstDay =
+    new Date(
+      now.getFullYear(),
+      0,
+      1
+    );
+
+  const diff =
+    Math.floor(
+      (
+        now - firstDay
+      ) /
+      86400000
+    );
+
+  const week =
+    Math.ceil(
+      (
+        diff +
+        firstDay.getDay() +
+        1
+      ) / 7
+    );
+
+  return (
+    now.getFullYear() +
+    "-W" +
+    week
+  );
+
+}
+
+
+function formatDate(date){
+
+  const day =
+    String(
+      date.getDate()
+    ).padStart(2,"0");
+
+  const month =
+    String(
+      date.getMonth()+1
+    ).padStart(2,"0");
+
+  const year =
+    date.getFullYear();
+
+  return `${day}.${month}.${year}`;
+
+}
+
+
+function formatPoints(value){
+
+  value =
+    Number(value || 0);
+
+  if(
+    Number.isInteger(value)
+  ){
+    return String(value);
+  }
+
+  return value
+    .toFixed(1)
+    .replace(".0","");
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+window.loginUser =
+function(){
 
   const login =
     document
@@ -1294,113 +992,806 @@ window.loginUser = function(){
 
   const error =
     document
-      .getElementById("error");
+      .getElementById("loginError");
 
 
   if(
-    USERS[login] &&
-    USERS[login].password === password
+    login === "iphone" &&
+    password === "1234"
   ){
 
-    currentRole =
-      USERS[login].role;
+    currentRole = "user";
 
     sessionStorage.setItem(
-      "role",
-      currentRole
+      "missionRole",
+      "user"
     );
 
-    document
-      .getElementById("loginPage")
-      .classList
-      .add("hidden");
-
-    document
-      .getElementById("mainPage")
-      .classList
-      .remove("hidden");
+    error.textContent = "";
 
     setupRole();
 
-    render();
-
-  }else{
-
-    error.textContent =
-      "Неправильний логін або пароль.";
-
+    return;
   }
+
+
+  if(
+    login === "admin" &&
+    password === "admin123"
+  ){
+
+    currentRole = "admin";
+
+    sessionStorage.setItem(
+      "missionRole",
+      "admin"
+    );
+
+    error.textContent = "";
+
+    setupRole();
+
+    return;
+  }
+
+
+  error.textContent =
+    "Неправильний логін або пароль.";
 
 };
 
 
-/* RESTORE LOGIN */
+/* =========================================
+   ROLE
+========================================= */
 
-const savedRole =
-  sessionStorage.getItem("role");
-
-
-if(
-  savedRole === "user" ||
-  savedRole === "admin"
-){
-
-  currentRole =
-    savedRole;
+function setupRole(){
 
   document
-    .getElementById("loginPage")
+    .getElementById("loginScreen")
     .classList
     .add("hidden");
 
   document
-    .getElementById("mainPage")
+    .getElementById("app")
     .classList
     .remove("hidden");
 
-  setupRole();
+
+  const roleText =
+    document
+      .getElementById("roleText");
+
+
+  if(
+    currentRole === "admin"
+  ){
+
+    roleText.textContent =
+      "Адміністратор";
+
+    document
+      .getElementById("adminPanel")
+      .classList
+      .remove("hidden");
+
+    document
+      .getElementById("userPanel")
+      .classList
+      .add("hidden");
+
+  }else{
+
+    roleText.textContent =
+      "Користувач";
+
+    document
+      .getElementById("userPanel")
+      .classList
+      .remove("hidden");
+
+    document
+      .getElementById("adminPanel")
+      .classList
+      .add("hidden");
+
+  }
+
+  render();
 
 }
 
 
-/* ROLE */
+/* =========================================
+   SAVE
+========================================= */
 
-function setupRole(){
+async function save(){
 
-  const badge =
+  try{
+
     document
-      .getElementById("roleBadge");
+      .getElementById("firebaseStatus")
+      .textContent =
+        "● Збереження...";
 
-  const admin =
+
+    await set(
+      dataRef,
+      state
+    );
+
+
     document
-      .getElementById("adminPanel");
+      .getElementById("firebaseStatus")
+      .textContent =
+        "● Синхронізовано";
 
 
-  if(currentRole === "admin"){
+    render();
 
-    badge.textContent =
-      "● Адміністратор";
+    return true;
 
-    admin.classList
-      .remove("hidden");
+  }catch(error){
 
-  }else{
+    console.error(
+      "Firebase save error:",
+      error
+    );
 
-    badge.textContent =
-      "● Користувач";
 
-    admin.classList
-      .add("hidden");
+    document
+      .getElementById("firebaseStatus")
+      .textContent =
+        "● Помилка Firebase";
+
+
+    render();
+
+
+    alert(
+      "Не вдалося зберегти зміни у Firebase.\n\n" +
+      error.message
+    );
+
+
+    return false;
 
   }
 
 }
 
 
-/* FIREBASE REALTIME */
+/* =========================================
+   HISTORY
+========================================= */
+
+function addHistory(
+  type,
+  value,
+  label
+){
+
+  state.history.push({
+
+    type:type,
+
+    value:Number(value),
+
+    label:label,
+
+    role:currentRole,
+
+    time:new Date().toLocaleString(
+      "uk-UA",
+      {
+        day:"2-digit",
+        month:"2-digit",
+        year:"numeric",
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    )
+
+  });
+
+}
+
+
+/* =========================================
+   BONUS
+========================================= */
+
+window.addBonus =
+async function(value){
+
+  if(
+    currentRole !== "user" &&
+    currentRole !== "admin"
+  ){
+    return;
+  }
+
+
+  state.earned =
+    Number(
+      (
+        Number(state.earned || 0) +
+        Number(value)
+      ).toFixed(1)
+    );
+
+
+  addHistory(
+    "bonus",
+    value,
+    "Бонус"
+  );
+
+
+  render();
+
+  await save();
+
+};
+
+
+/* =========================================
+   PENALTY
+========================================= */
+
+window.addPenalty =
+async function(value){
+
+  if(
+    currentRole !== "admin"
+  ){
+    return;
+  }
+
+
+  state.penalty =
+    Number(
+      (
+        Number(state.penalty || 0) +
+        Number(value)
+      ).toFixed(1)
+    );
+
+
+  addHistory(
+    "penalty",
+    value,
+    "Штраф"
+  );
+
+
+  render();
+
+  await save();
+
+};
+
+
+/* =========================================
+   WEEKLY BONUS
+========================================= */
+
+window.giveWeekly =
+async function(){
+
+  if(
+    currentRole !== "admin"
+  ){
+    return;
+  }
+
+
+  const week =
+    getWeekKey();
+
+
+  if(
+    state.weeklyWeek === week
+  ){
+
+    alert(
+      "Бонус тижня вже виданий цього тижня."
+    );
+
+    return;
+  }
+
+
+  state.earned =
+    Number(
+      (
+        Number(state.earned || 0) +
+        1
+      ).toFixed(1)
+    );
+
+
+  state.weeklyWeek =
+    week;
+
+
+  addHistory(
+    "weekly",
+    1,
+    "Бонус тижня"
+  );
+
+
+  render();
+
+  await save();
+
+};
+
+
+/* =========================================
+   UNDO
+========================================= */
+
+window.undoLast =
+async function(){
+
+  if(
+    currentRole !== "admin"
+  ){
+    return;
+  }
+
+
+  if(
+    !state.history.length
+  ){
+
+    alert(
+      "Немає дій для скасування."
+    );
+
+    return;
+  }
+
+
+  const last =
+    state.history[
+      state.history.length - 1
+    ];
+
+
+  if(
+    last.type === "bonus" ||
+    last.type === "weekly"
+  ){
+
+    state.earned =
+      Math.max(
+        0,
+        Number(
+          (
+            Number(state.earned || 0) -
+            Number(last.value || 0)
+          ).toFixed(1)
+        )
+      );
+
+
+    if(
+      last.type === "weekly"
+    ){
+
+      state.weeklyWeek = "";
+
+    }
+
+  }
+
+
+  if(
+    last.type === "penalty"
+  ){
+
+    state.penalty =
+      Math.max(
+        0,
+        Number(
+          (
+            Number(state.penalty || 0) -
+            Number(last.value || 0)
+          ).toFixed(1)
+        )
+      );
+
+  }
+
+
+  state.history.pop();
+
+
+  render();
+
+  await save();
+
+};
+
+
+/* =========================================
+   RESET
+========================================= */
+
+window.resetAll =
+async function(){
+
+  if(
+    currentRole !== "admin"
+  ){
+    return;
+  }
+
+
+  const ok =
+    confirm(
+      "Точно скинути весь прогрес?"
+    );
+
+
+  if(!ok){
+    return;
+  }
+
+
+  state = {
+
+    earned:0,
+
+    penalty:0,
+
+    weeklyWeek:"",
+
+    history:[]
+
+  };
+
+
+  render();
+
+  await save();
+
+};
+
+
+/* =========================================
+   RENDER
+========================================= */
+
+function render(){
+
+  const earned =
+    Number(state.earned || 0);
+
+  const penalty =
+    Number(state.penalty || 0);
+
+
+  const net =
+    Number(
+      (
+        earned -
+        penalty
+      ).toFixed(1)
+    );
+
+
+  /*
+    +1 бонус = дата на 1 день раніше
+    +0.5 бонус = дата на 0.5 дня раніше
+
+    Штраф навпаки додає дні.
+  */
+
+  const dateShift =
+    net;
+
+
+  const purchaseDate =
+    new Date(BASE_DATE);
+
+
+  purchaseDate.setTime(
+    BASE_DATE.getTime() -
+    dateShift *
+    86400000
+  );
+
+
+  document
+    .getElementById("purchaseDate")
+    .textContent =
+      formatDate(purchaseDate);
+
+
+  const daysLeft =
+    Math.max(
+      0,
+      Math.ceil(
+        (
+          purchaseDate.getTime() -
+          new Date().getTime()
+        ) /
+        86400000
+      )
+    );
+
+
+  document
+    .getElementById("daysInfo")
+    .textContent =
+      `Залишилось ${daysLeft} днів`;
+
+
+  document
+    .getElementById("earned")
+    .textContent =
+      formatPoints(earned);
+
+
+  document
+    .getElementById("penalty")
+    .textContent =
+      formatPoints(penalty);
+
+
+  document
+    .getElementById("netPoints")
+    .textContent =
+      formatPoints(net);
+
+
+  const progress =
+    Math.min(
+      100,
+      Math.max(
+        0,
+        (
+          (
+            net /
+            TOTAL_DAYS
+          ) *
+          100
+        )
+      )
+    );
+
+
+  document
+    .getElementById("progressBar")
+    .style.width =
+      progress + "%";
+
+
+  document
+    .getElementById("progressPercent")
+    .textContent =
+      Math.round(progress) + "%";
+
+
+  const result =
+    document
+      .getElementById("resultText");
+
+
+  if(net > 0){
+
+    result.textContent =
+      `Ти скоротив дату на ${formatPoints(net)} ${
+        Math.abs(net) === 1
+          ? "день"
+          : "днів"
+      }.`;
+
+  }else if(net < 0){
+
+    result.textContent =
+      `Через штрафи дата змістилась на ${formatPoints(Math.abs(net))} днів.`;
+
+  }else{
+
+    result.textContent =
+      "Поки що дата без змін.";
+
+  }
+
+
+  renderHistory();
+
+  renderWeekly();
+
+}
+
+
+/* =========================================
+   HISTORY RENDER
+========================================= */
+
+function renderHistory(){
+
+  const box =
+    document
+      .getElementById("history");
+
+
+  if(
+    !state.history ||
+    !state.history.length
+  ){
+
+    box.innerHTML =
+      `<div class="empty">
+        Дій ще немає
+      </div>`;
+
+    return;
+  }
+
+
+  const items =
+    [...state.history]
+      .reverse();
+
+
+  box.innerHTML =
+    items
+      .map(item => {
+
+        const isPenalty =
+          item.type === "penalty";
+
+
+        const sign =
+          isPenalty
+            ? "+"
+            : "+";
+
+
+        const cls =
+          isPenalty
+            ? "penalty-text"
+            : "bonus-text";
+
+
+        return `
+
+          <div class="history-item">
+
+            <div class="history-left">
+
+              ${item.label}
+
+              <br>
+
+              <span style="color:#666">
+                ${item.time}
+              </span>
+
+            </div>
+
+            <div class="history-right ${cls}">
+              ${sign}${formatPoints(item.value)}
+            </div>
+
+          </div>
+
+        `;
+
+      })
+      .join("");
+
+}
+
+
+/* =========================================
+   WEEKLY UI
+========================================= */
+
+function renderWeekly(){
+
+  const week =
+    getWeekKey();
+
+
+  const used =
+    state.weeklyWeek === week;
+
+
+  const button =
+    document
+      .getElementById("weeklyBtn");
+
+
+  const status =
+    document
+      .getElementById("weeklyStatus");
+
+
+  if(button){
+
+    button.disabled =
+      used;
+
+    button.textContent =
+      used
+        ? "Видано"
+        : "+1";
+
+  }
+
+
+  if(status){
+
+    status.textContent =
+      used
+        ? "Бонус уже виданий цього тижня"
+        : "+1 бал";
+
+  }
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+window.logout =
+function(){
+
+  sessionStorage.removeItem(
+    "missionRole"
+  );
+
+  currentRole = null;
+
+
+  document
+    .getElementById("app")
+    .classList
+    .add("hidden");
+
+
+  document
+    .getElementById("loginScreen")
+    .classList
+    .remove("hidden");
+
+
+  document
+    .getElementById("login")
+    .value = "";
+
+
+  document
+    .getElementById("password")
+    .value = "";
+
+
+  document
+    .getElementById("loginError")
+    .textContent = "";
+
+};
+
+
+/* =========================================
+   FIREBASE REALTIME LISTENER
+========================================= */
 
 onValue(
+
   dataRef,
+
   (snapshot)=>{
 
     const data =
@@ -1412,10 +1803,14 @@ onValue(
       state = {
 
         earned:
-          Number(data.earned || 0),
+          Number(
+            data.earned || 0
+          ),
 
         penalty:
-          Number(data.penalty || 0),
+          Number(
+            data.penalty || 0
+          ),
 
         weeklyWeek:
           data.weeklyWeek || "",
@@ -1441,10 +1836,18 @@ onValue(
 
       };
 
+
       set(
         dataRef,
         state
-      );
+      ).catch(error => {
+
+        console.error(
+          "Firebase initial save error:",
+          error
+        );
+
+      });
 
     }
 
@@ -1457,687 +1860,53 @@ onValue(
 
     render();
 
+  },
+
+  (error)=>{
+
+    console.error(
+      "Firebase listener error:",
+      error
+    );
+
+
+    document
+      .getElementById("firebaseStatus")
+      .textContent =
+        "● Помилка Firebase";
+
+
+    alert(
+      "Firebase не дає доступ до бази.\n\n" +
+      error.message
+    );
+
   }
+
 );
 
 
-/* SAVE */
+/* =========================================
+   AUTO LOGIN AFTER RELOAD
+========================================= */
 
-async function save(){
-
-  await set(
-    dataRef,
-    state
+const savedRole =
+  sessionStorage.getItem(
+    "missionRole"
   );
 
-}
 
-
-/* HISTORY */
-
-function addHistory(
-  type,
-  value,
-  label
+if(
+  savedRole === "user" ||
+  savedRole === "admin"
 ){
 
-  if(
-    !Array.isArray(state.history)
-  ){
+  currentRole =
+    savedRole;
 
-    state.history = [];
-
-  }
-
-
-  state.history.push({
-
-    type:type,
-
-    value:value,
-
-    label:label,
-
-    time:Date.now()
-
-  });
-
-
-  if(
-    state.history.length > 50
-  ){
-
-    state.history =
-      state.history.slice(-50);
-
-  }
+  setupRole();
 
 }
-
-
-/* BONUS
-
-   ПОВНИЙ ДОСТУП:
-   USER + ADMIN
-*/
-
-window.addBonus =
-  async function(value){
-
-    /*
-      Раніше тут було:
-      if(currentRole !== "user")
-
-      Тепер адмін також
-      має право додавати бонуси.
-    */
-
-    if(
-      currentRole !== "user" &&
-      currentRole !== "admin"
-    ){
-
-      return;
-
-    }
-
-
-    state.earned =
-      Number(
-        (
-          state.earned + value
-        ).toFixed(1)
-      );
-
-
-    addHistory(
-
-      "bonus",
-
-      value,
-
-      currentRole === "admin"
-        ? "Бонус адміністратора"
-        : "Бонус користувача"
-
-    );
-
-
-    await save();
-
-  };
-
-
-/* PENALTY
-
-   ТІЛЬКИ ADMIN
-*/
-
-window.addPenalty =
-  async function(value){
-
-    if(
-      currentRole !== "admin"
-    ){
-
-      return;
-
-    }
-
-
-    state.penalty =
-      Number(
-        (
-          state.penalty + value
-        ).toFixed(1)
-      );
-
-
-    addHistory(
-
-      "penalty",
-
-      value,
-
-      "Штраф"
-
-    );
-
-
-    await save();
-
-  };
-
-
-/* WEEK NUMBER */
-
-function getWeekKey(){
-
-  const now =
-    new Date();
-
-
-  const first =
-    new Date(
-      now.getFullYear(),
-      0,
-      1
-    );
-
-
-  const days =
-    Math.floor(
-      (now - first) /
-      86400000
-    );
-
-
-  const week =
-    Math.ceil(
-      (
-        days +
-        first.getDay() +
-        1
-      ) / 7
-    );
-
-
-  return (
-    now.getFullYear() +
-    "-" +
-    week
-  );
-
-}
-
-
-/* WEEKLY BONUS
-
-   ТІЛЬКИ ADMIN
-*/
-
-window.giveWeekly =
-  async function(){
-
-    if(
-      currentRole !== "admin"
-    ){
-
-      return;
-
-    }
-
-
-    const week =
-      getWeekKey();
-
-
-    if(
-      state.weeklyWeek === week
-    ){
-
-      alert(
-        "Щотижневий бонус уже виданий цього тижня."
-      );
-
-      return;
-
-    }
-
-
-    state.earned =
-      Number(
-        (
-          state.earned + 1
-        ).toFixed(1)
-      );
-
-
-    state.weeklyWeek =
-      week;
-
-
-    addHistory(
-
-      "weekly",
-
-      1,
-
-      "Щотижневий бонус"
-
-    );
-
-
-    await save();
-
-  };
-
-
-/* UNDO
-
-   ТІЛЬКИ ADMIN
-*/
-
-window.undoLast =
-  async function(){
-
-    if(
-      currentRole !== "admin"
-    ){
-
-      return;
-
-    }
-
-
-    if(
-      !state.history.length
-    ){
-
-      alert(
-        "Немає дій для скасування."
-      );
-
-      return;
-
-    }
-
-
-    const last =
-      state.history[
-        state.history.length - 1
-      ];
-
-
-    if(
-      last.type === "bonus" ||
-      last.type === "weekly"
-    ){
-
-      state.earned =
-        Math.max(
-
-          0,
-
-          Number(
-            (
-              state.earned -
-              last.value
-            ).toFixed(1)
-          )
-
-        );
-
-
-      if(
-        last.type === "weekly"
-      ){
-
-        state.weeklyWeek =
-          "";
-
-      }
-
-    }
-
-
-    if(
-      last.type === "penalty"
-    ){
-
-      state.penalty =
-        Math.max(
-
-          0,
-
-          Number(
-            (
-              state.penalty -
-              last.value
-            ).toFixed(1)
-          )
-
-        );
-
-    }
-
-
-    state.history.pop();
-
-
-    await save();
-
-  };
-
-
-/* RESET
-
-   ТІЛЬКИ ADMIN
-*/
-
-window.resetAll =
-  async function(){
-
-    if(
-      currentRole !== "admin"
-    ){
-
-      return;
-
-    }
-
-
-    const ok =
-      confirm(
-        "Точно скинути весь прогрес?"
-      );
-
-
-    if(!ok){
-
-      return;
-
-    }
-
-
-    state = {
-
-      earned:0,
-
-      penalty:0,
-
-      weeklyWeek:"",
-
-      history:[]
-
-    };
-
-
-    await save();
-
-  };
-
-
-/* RENDER */
-
-function render(){
-
-  const earned =
-    Number(
-      state.earned || 0
-    );
-
-
-  const penalty =
-    Number(
-      state.penalty || 0
-    );
-
-
-  const net =
-    Number(
-      (
-        earned - penalty
-      ).toFixed(1)
-    );
-
-
-  /* PURCHASE DATE */
-
-  const purchase =
-    new Date(
-      BASE_DATE.getTime()
-    );
-
-
-  purchase.setTime(
-
-    purchase.getTime() -
-    net * 86400000
-
-  );
-
-
-  document
-    .getElementById("purchaseDate")
-    .textContent =
-      formatDate(purchase);
-
-
-  /* DAYS LEFT */
-
-  const today =
-    new Date();
-
-
-  const daysLeft =
-    Math.ceil(
-      (
-        purchase - today
-      ) / 86400000
-    );
-
-
-  document
-    .getElementById("daysLeft")
-    .textContent =
-      Math.max(
-        0,
-        daysLeft
-      );
-
-
-  /* STATS */
-
-  document
-    .getElementById("earnedStat")
-    .textContent =
-      cleanNumber(earned);
-
-
-  document
-    .getElementById("penaltyStat")
-    .textContent =
-      cleanNumber(penalty);
-
-
-  document
-    .getElementById("netStat")
-    .textContent =
-      cleanNumber(net);
-
-
-  document
-    .getElementById("netResult")
-    .textContent =
-      cleanNumber(net);
-
-
-  /* RESULT LABEL */
-
-  const label =
-    document
-      .getElementById("resultLabel");
-
-
-  if(net > 0){
-
-    label.textContent =
-      "Дата наближена";
-
-  }else if(net < 0){
-
-    label.textContent =
-      "Дата відсунута";
-
-  }else{
-
-    label.textContent =
-      "Початок місії";
-
-  }
-
-
-  /* PROGRESS */
-
-  const progress =
-    Math.max(
-
-      0,
-
-      Math.min(
-
-        100,
-
-        (net / 30) * 100
-
-      )
-
-    );
-
-
-  document
-    .getElementById("progressFill")
-    .style.width =
-      progress + "%";
-
-
-  document
-    .getElementById("progressText")
-    .textContent =
-      Math.round(progress) + "%";
-
-
-  /* WEEKLY */
-
-  const week =
-    getWeekKey();
-
-
-  const weeklyBtn =
-    document
-      .getElementById("weeklyBtn");
-
-
-  const weeklyStatus =
-    document
-      .getElementById("weeklyStatus");
-
-
-  if(
-    state.weeklyWeek === week
-  ){
-
-    weeklyBtn.disabled =
-      true;
-
-    weeklyBtn.textContent =
-      "✓";
-
-    weeklyStatus.textContent =
-      "Вже видано цього тижня";
-
-  }else{
-
-    weeklyBtn.disabled =
-      false;
-
-    weeklyBtn.textContent =
-      "+1";
-
-    weeklyStatus.textContent =
-      "+1 день • доступно";
-
-  }
-
-}
-
-
-/* DATE */
-
-function formatDate(date){
-
-  const d =
-    String(
-      date.getDate()
-    ).padStart(
-      2,
-      "0"
-    );
-
-
-  const m =
-    String(
-      date.getMonth() + 1
-    ).padStart(
-      2,
-      "0"
-    );
-
-
-  const y =
-    date.getFullYear();
-
-
-  return (
-    d +
-    "." +
-    m +
-    "." +
-    y
-  );
-
-}
-
-
-/* NUMBER */
-
-function cleanNumber(number){
-
-  if(
-    number % 1 === 0
-  ){
-
-    return String(number);
-
-  }
-
-
-  return number.toFixed(1);
-
-}
-
-
-/* LOGOUT */
-
-window.logout =
-  function(){
-
-    sessionStorage.removeItem(
-      "role"
-    );
-
-    location.reload();
-
-  };
-
-
-/* ENTER */
-
-document
-  .getElementById("password")
-  .addEventListener(
-    "keydown",
-    (e)=>{
-
-      if(e.key === "Enter"){
-
-        loginUser();
-
-      }
-
-    }
-  );
 
 </script>
 
