@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone Mission</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #111827, #1e3a8a);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 430px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 28px;
+    padding: 28px 22px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.logo {
+    font-size: 55px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0 0 8px;
+    font-size: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 15px;
+    font-size: 17px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 15px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 8px;
+    background: white;
+    color: #111827;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+.blue {
+    background: #2563eb;
+    color: white;
+}
+
+.red {
+    background: #dc2626;
+    color: white;
+}
+
+.green {
+    background: #16a34a;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.days {
+    text-align: center;
+    font-size: 72px;
+    font-weight: 800;
+    margin: 15px 0;
+}
+
+.days-label {
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 16px;
+}
+
+.message {
+    text-align: center;
+    margin: 18px 0;
+    padding: 15px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 15px;
+}
+
+.admin-box {
+    margin-top: 20px;
+    padding: 18px;
+    background: rgba(0,0,0,0.2);
+    border-radius: 18px;
+}
+
+.admin-box h3 {
+    margin-top: 0;
+}
+
+.status {
+    text-align: center;
+    margin-top: 15px;
+    color: #86efac;
+    font-weight: 600;
+}
+
+.logout {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+}
+
+.info {
+    font-size: 14px;
+    color: #cbd5e1;
+    text-align: center;
+    margin-top: 18px;
+    line-height: 1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LOGIN -->
+    <div class="card" id="loginPage">
+
+        <div class="logo">📱</div>
+
+        <h1>iPhone Mission</h1>
+
+        <div class="subtitle">
+            Виконай завдання та наближайся до своєї цілі 🚀
+        </div>
+
+        <input
+            type="text"
+            id="login"
+            placeholder="Логін"
+            autocomplete="username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Пароль"
+            autocomplete="current-password"
+        >
+
+        <button class="blue" onclick="loginUser()">
+            Увійти
+        </button>
+
+        <div class="message hidden" id="loginError">
+            Неправильний логін або пароль
+        </div>
+
+        <div class="info">
+            Виконай свої завдання та зменшуй кількість днів до iPhone.
+        </div>
+
+    </div>
+
+
+    <!-- CHILD PAGE -->
+    <div class="card hidden" id="childPage">
+
+        <div class="logo">📱</div>
+
+        <h1>Моя iPhone Mission</h1>
+
+        <div class="subtitle">
+            Твій прогрес
+        </div>
+
+        <div class="days" id="days">
+            30
+        </div>
+
+        <div class="days-label">
+            днів залишилось
+        </div>
+
+        <div class="message">
+            🔥 Не зупиняйся!<br>
+            Кожен день наближає тебе до iPhone.
+        </div>
+
+        <button class="green" onclick="completeDay()">
+            ✅ Виконати завдання
+        </button>
+
+        <button class="red" onclick="missDay()">
+            ❌ Не виконав завдання
+        </button>
+
+        <button class="logout" onclick="logout()">
+            Вийти
+        </button>
+
+    </div>
+
+
+    <!-- ADMIN PAGE -->
+    <div class="card hidden" id="adminPage">
+
+        <div class="logo">👨‍💼</div>
+
+        <h1>Адмін-панель</h1>
+
+        <div class="subtitle">
+            Керування iPhone Mission
+        </div>
+
+        <div class="admin-box">
+
+            <h3>Поточний прогрес</h3>
+
+            <div class="days" id="adminDays">
+                30
+            </div>
+
+            <div class="days-label">
+                днів залишилось
+            </div>
+
+            <button class="green" onclick="addDay()">
+                ➕ Додати 1 день
+            </button>
+
+            <button class="red" onclick="removeDay()">
+                ➖ Забрати 1 день
+            </button>
+
+            <button onclick="resetMission()">
+                🔄 Скинути до 30 днів
+            </button>
+
+            <div class="status" id="adminStatus"></div>
+
+        </div>
+
+        <button class="logout" onclick="logout()">
+            Вийти
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let days = Number(localStorage.getItem("iphoneMissionDays"));
+
+if (!days || days < 0) {
+    days = 30;
+    localStorage.setItem("iphoneMissionDays", days);
+}
+
+
+function updateDays() {
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("adminDays").textContent = days;
+
+    localStorage.setItem("iphoneMissionDays", days);
+}
+
+
+function loginUser() {
+
+    const login = document.getElementById("login").value.trim();
+    const password = document.getElementById("password").value;
+
+    const error = document.getElementById("loginError");
+
+    error.classList.add("hidden");
+
+    // ДИТИНА
+    if (login === "child" && password === "1234") {
+
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("childPage").classList.remove("hidden");
+
+        updateDays();
+        return;
+    }
+
+    // АДМІН
+    if (login === "admin" && password === "admin123") {
+
+        document.getElementById("loginPage").classList.add("hidden");
+        document.getElementById("adminPage").classList.remove("hidden");
+
+        updateDays();
+        return;
+    }
+
+    error.classList.remove("hidden");
+}
+
+
+function completeDay() {
+
+    if (days > 0) {
+        days--;
+    }
+
+    updateDays();
+
+    if (days === 0) {
+        alert("🎉 Вітаємо! Місія виконана! iPhone твій! 📱🔥");
+    } else {
+        alert("🔥 Молодець! Ще один день виконано!");
+    }
+}
+
+
+function missDay() {
+
+    days++;
+    updateDays();
+
+    alert("😢 Завдання не виконано. Додано 1 день.");
+}
+
+
+function addDay() {
+
+    days++;
+    updateDays();
+
+    showAdminStatus("Додано 1 день ✅");
+}
+
+
+function removeDay() {
+
+    if (days > 0) {
+        days--;
+    }
+
+    updateDays();
+
+    showAdminStatus("Забрано 1 день ✅");
+}
+
+
+function resetMission() {
+
+    if (confirm("Скинути місію до 30 днів?")) {
+
+        days = 30;
+
+        updateDays();
+
+        showAdminStatus("Місію скинуто до 30 днів 🔄");
+    }
+}
+
+
+function showAdminStatus(text) {
+
+    const status = document.getElementById("adminStatus");
+
+    status.textContent = text;
+
+    setTimeout(() => {
+        status.textContent = "";
+    }, 2500);
+}
+
+
+function logout() {
+
+    document.getElementById("childPage").classList.add("hidden");
+    document.getElementById("adminPage").classList.add("hidden");
+    document.getElementById("loginPage").classList.remove("hidden");
+
+    document.getElementById("login").value = "";
+    document.getElementById("password").value = "";
+}
+
+
+updateDays();
+
+</script>
+
+</body>
+</html>
